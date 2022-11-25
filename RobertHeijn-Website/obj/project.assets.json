@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\RobertHeijn-Website.csproj",
-      "projectName": "RobertHeijn-Website",
-      "projectPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\RobertHeijn-Website.csproj",
+      "projectUniqueName": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\Website.csproj",
+      "projectName": "Website",
+      "projectPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\Website.csproj",
       "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
       "outputPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\obj\\",
       "projectStyle": "PackageReference",

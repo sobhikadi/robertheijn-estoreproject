@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Desktop\\RobertHeijn-Desktop.csproj",
-      "projectName": "RobertHeijn-Desktop",
-      "projectPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Desktop\\RobertHeijn-Desktop.csproj",
+      "projectUniqueName": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Desktop\\DesktopApplication.csproj",
+      "projectName": "DesktopApplication",
+      "projectPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Desktop\\DesktopApplication.csproj",
       "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
       "outputPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Desktop\\obj\\",
       "projectStyle": "PackageReference",
