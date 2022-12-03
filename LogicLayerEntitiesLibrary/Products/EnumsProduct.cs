@@ -8,5 +8,12 @@ namespace LogicLayerEntitiesLibrary.Products
 {
     public class EnumsProduct
     {
+        public enum ProductSearchType
+        {
+            id,
+            name,
+            category,
+            sub_category
+        }
     }
 }

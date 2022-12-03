@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "aWuI8rfL91aItmuFF3HO6AmuCgpJ+xAkNt6dUt/a94GoeyWqtjFQt5vVRre4KvUewRHQgzk9943dDchUdJNILg==",
+  "dgSpecHash": "cLTuHm0cfFofk1Bt0y0V0r7cGk4DdfuS2HqqN7EhcBnyt1AmmaSyTvicbLBpxOj8iMQUracwRmkdvH4i62qsKw==",
   "success": true,
   "projectFilePath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\Website.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\moham\\.nuget\\packages\\konscious.security.cryptography.argon2\\1.3.0\\konscious.security.cryptography.argon2.1.3.0.nupkg.sha512",
+    "C:\\Users\\moham\\.nuget\\packages\\konscious.security.cryptography.blake2\\1.1.0\\konscious.security.cryptography.blake2.1.1.0.nupkg.sha512",
+    "C:\\Users\\moham\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512"
+  ],
   "logs": []
 }

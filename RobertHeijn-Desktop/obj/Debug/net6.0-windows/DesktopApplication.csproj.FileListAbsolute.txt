@@ -22,3 +22,8 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\bin\Debug\net6.0-windows\DataAccessLibrary.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.LogIn.resources
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.csproj.CopyComplete
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Dashboard.resources
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Employees.Employees.resources
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Main.resources
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Orders.Orders.resources
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Products.Products.resources

@@ -11,7 +11,7 @@ namespace LogicLayerEntitiesLibrary.Products
         private string name;
         DateTime? lastModified;
 
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string Name { get { return name; } private set { name = value; } }
         public DateTime? LastModified { get { return lastModified; } private set { lastModified = value; } }
 
