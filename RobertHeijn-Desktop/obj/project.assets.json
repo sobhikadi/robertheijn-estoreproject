@@ -1,11 +1,68 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "DataAccessLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LogicLayerEntitiesLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessLibrary.dll": {}
+        }
+      },
+      "LogicLayerEntitiesLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/LogicLayerEntitiesLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LogicLayerEntitiesLibrary.dll": {}
+        }
+      },
+      "LogicLayerHandlersLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataAccessLibrary": "1.0.0",
+          "LogicLayerEntitiesLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LogicLayerHandlersLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LogicLayerHandlersLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DataAccessLibrary/1.0.0": {
+      "type": "project",
+      "path": "../DataAccessLibrary/DataAccessLibrary.csproj",
+      "msbuildProject": "../DataAccessLibrary/DataAccessLibrary.csproj"
+    },
+    "LogicLayerEntitiesLibrary/1.0.0": {
+      "type": "project",
+      "path": "../LogicLayerEntitiesLibrary/LogicLayerEntitiesLibrary.csproj",
+      "msbuildProject": "../LogicLayerEntitiesLibrary/LogicLayerEntitiesLibrary.csproj"
+    },
+    "LogicLayerHandlersLibrary/1.0.0": {
+      "type": "project",
+      "path": "../LogicLayerHandlersLibrary/LogicLayerHandlersLibrary.csproj",
+      "msbuildProject": "../LogicLayerHandlersLibrary/LogicLayerHandlersLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "LogicLayerEntitiesLibrary >= 1.0.0",
+      "LogicLayerHandlersLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\moham\\.nuget\\packages\\": {}
@@ -33,7 +90,14 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\LogicLayerEntitiesLibrary\\LogicLayerEntitiesLibrary.csproj": {
+              "projectPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\LogicLayerEntitiesLibrary\\LogicLayerEntitiesLibrary.csproj"
+            },
+            "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\LogicLayerHandlersLibrary\\LogicLayerHandlersLibrary.csproj": {
+              "projectPath": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\LogicLayerHandlersLibrary\\LogicLayerHandlersLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

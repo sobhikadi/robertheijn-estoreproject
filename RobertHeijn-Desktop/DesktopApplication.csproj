@@ -9,4 +9,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LogicLayerEntitiesLibrary\LogicLayerEntitiesLibrary.csproj" />
+    <ProjectReference Include="..\LogicLayerHandlersLibrary\LogicLayerHandlersLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
