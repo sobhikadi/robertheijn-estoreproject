@@ -96,3 +96,10 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\Testsuite.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\Testsuite.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\ref\Testsuite.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\CoverletSourceRootsMapping
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\DataAccessLibrary.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\LogicLayerEntitiesLibrary.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\LogicLayerHandlersLibrary.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\LogicLayerEntitiesLibrary.pdb
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\LogicLayerHandlersLibrary.pdb
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\DataAccessLibrary.pdb

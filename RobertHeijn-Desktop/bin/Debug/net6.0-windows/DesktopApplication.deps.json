@@ -7,14 +7,55 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "DesktopApplication/1.0.0": {
+        "dependencies": {
+          "LogicLayerEntitiesLibrary": "1.0.0",
+          "LogicLayerHandlersLibrary": "1.0.0"
+        },
         "runtime": {
           "DesktopApplication.dll": {}
+        }
+      },
+      "DataAccessLibrary/1.0.0": {
+        "dependencies": {
+          "LogicLayerEntitiesLibrary": "1.0.0"
+        },
+        "runtime": {
+          "DataAccessLibrary.dll": {}
+        }
+      },
+      "LogicLayerEntitiesLibrary/1.0.0": {
+        "runtime": {
+          "LogicLayerEntitiesLibrary.dll": {}
+        }
+      },
+      "LogicLayerHandlersLibrary/1.0.0": {
+        "dependencies": {
+          "DataAccessLibrary": "1.0.0",
+          "LogicLayerEntitiesLibrary": "1.0.0"
+        },
+        "runtime": {
+          "LogicLayerHandlersLibrary.dll": {}
         }
       }
     }
   },
   "libraries": {
     "DesktopApplication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataAccessLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LogicLayerEntitiesLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LogicLayerHandlersLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

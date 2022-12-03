@@ -24,3 +24,10 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\ref\Website.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\DataAccessLibrary.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\LogicLayerEntitiesLibrary.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\LogicLayerHandlersLibrary.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\LogicLayerEntitiesLibrary.pdb
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\LogicLayerHandlersLibrary.pdb
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\DataAccessLibrary.pdb
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.csproj.CopyComplete

@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "LogicLayerHandlersLibrary/1.0.0": {
+        "dependencies": {
+          "DataAccessLibrary": "1.0.0",
+          "LogicLayerEntitiesLibrary": "1.0.0"
+        },
+        "runtime": {
+          "LogicLayerHandlersLibrary.dll": {}
+        }
+      },
+      "DataAccessLibrary/1.0.0": {
+        "dependencies": {
+          "LogicLayerEntitiesLibrary": "1.0.0"
+        },
+        "runtime": {
+          "DataAccessLibrary.dll": {}
+        }
+      },
+      "LogicLayerEntitiesLibrary/1.0.0": {
+        "runtime": {
+          "LogicLayerEntitiesLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LogicLayerHandlersLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataAccessLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LogicLayerEntitiesLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
