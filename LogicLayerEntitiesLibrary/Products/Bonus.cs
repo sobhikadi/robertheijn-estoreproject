@@ -17,9 +17,5 @@ namespace LogicLayerEntitiesLibrary.Products
         public double Discount { get; private set; }
         public EnumsProduct.BonusRules BonusRule { get; private set; }
 
-
-
-
-
     }
 }
