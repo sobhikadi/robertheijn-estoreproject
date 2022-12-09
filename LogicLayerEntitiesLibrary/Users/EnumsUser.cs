@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace LogicLayerEntitiesLibrary.Users
 {
-    public class EnumsUser
+    public enum EmployeeRole
     {
-        public enum EmployeeRole 
-        {
-            HREmployee,
-            InventoryEmployee,
-            SalesEmployee
-        }
+        HREmployee,
+        InventoryEmployee,
+        SalesEmployee
+    }
 
-        public enum EmployeeSearchType 
-        {
-            first_name,
-            last_name,
-            role,
-            email
-        }
-
+    public enum EmployeeSearchType
+    {
+        first_name,
+        last_name,
+        role,
+        email
     }
 }

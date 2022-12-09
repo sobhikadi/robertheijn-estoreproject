@@ -1,4 +1,5 @@
 using DesktopApplication.Forms;
+using LogicLayerEntitiesLibrary.Users;
 using LogicLayerHandlersLibrary;
 using System.Data.SqlClient;
 
@@ -31,7 +32,8 @@ public partial class LogIn : Form
     {
        
         Main fMain;
-        string email, password, role;
+        string email, password;
+        User user = null;
 
         try
         {
@@ -42,10 +44,10 @@ public partial class LogIn : Form
             //email = tbEmail.Text;
             //password = tbPassword.Text;
 
-            //role = userHandler.ValidateUser(email, password);
-            //if (string.IsNullOrEmpty(role)) throw new Exception("Email or passowrd is incorrect");
-            //if (role != "Employee" && role != "Admin") throw new Exception("Email or passowrd is incorrect");
-            fMain = new Main(this, "");
+            //user = userHandler.ValidateUser(email, password);
+            //if (user == null) throw new Exception("Email or passowrd is incorrect");
+            //if (user.role == "Customer") throw new Exception("Email or passowrd is incorrect");
+            fMain = new Main(this, user);
             fMain.Show();
             this.Hide();
         }

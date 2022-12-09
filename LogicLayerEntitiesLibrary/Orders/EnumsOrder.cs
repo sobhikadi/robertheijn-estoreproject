@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace LogicLayerEntitiesLibrary.Orders
 {
-    public class EnumsOrder
+    public enum OrderStatus
     {
-        public enum OrderStatus 
-        {
-            processing,
-            preparing,
-            shipping,
-            on_the_way,
-            delivered
-        }
+        processing,
+        preparing,
+        shipping,
+        on_the_way,
+        delivered
+    }
 
-        public enum DeliveryOption 
-        {
-            pick_up,
-            home_delivery
-        }
+    public enum DeliveryOption
+    {
+        pick_up,
+        home_delivery
     }
 }

@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace LogicLayerEntitiesLibrary.Products
 {
-    public class EnumsProduct
+    public enum ProductSearchType
     {
-        public enum ProductSearchType
-        {
-            id,
-            name,
-            category,
-            sub_category
-        }
+        id,
+        name,
+        category,
+        sub_category
+    }
 
-        public enum BonusRules 
-        {
-            PerUnit,
-            ItemFree,
-            HalfPrice,
-            UnitsForPrice
-        }
+    public enum BonusRules
+    {
+        PerUnit,
+        ItemFree,
+        HalfPrice,
+        UnitsForPrice
     }
 }

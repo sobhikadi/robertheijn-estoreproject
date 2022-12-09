@@ -36,3 +36,5 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Advertisement.Advertisements.resources
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Statistics.Statistics.resources

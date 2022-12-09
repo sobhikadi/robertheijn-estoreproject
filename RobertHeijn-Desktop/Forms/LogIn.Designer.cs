@@ -46,7 +46,7 @@ partial class LogIn
             // 
             // panelLogo
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(116)))), ((int)(((byte)(247)))));
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
             this.panelLogo.Controls.Add(this.pboxLogo);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
@@ -61,7 +61,7 @@ partial class LogIn
             this.pboxLogo.Location = new System.Drawing.Point(36, 178);
             this.pboxLogo.Name = "pboxLogo";
             this.pboxLogo.Padding = new System.Windows.Forms.Padding(20);
-            this.pboxLogo.Size = new System.Drawing.Size(202, 248);
+            this.pboxLogo.Size = new System.Drawing.Size(206, 244);
             this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pboxLogo.TabIndex = 5;
             this.pboxLogo.TabStop = false;
@@ -89,13 +89,13 @@ partial class LogIn
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(31, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 28);
+            this.label1.Size = new System.Drawing.Size(267, 28);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Welcome to eStore";
+            this.label1.Text = "Welcome to Robert Heijn B.V.";
             // 
             // btnLogIn
             // 
-            this.btnLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(116)))), ((int)(((byte)(247)))));
+            this.btnLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
             this.btnLogIn.FlatAppearance.BorderSize = 0;
             this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
