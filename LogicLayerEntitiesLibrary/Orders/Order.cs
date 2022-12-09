@@ -9,6 +9,7 @@ namespace LogicLayerEntitiesLibrary.Orders
     public class Order
     {
         public int Id { get; private set; }
+        public int CustomerId { get; private set; }
         public DateTime OrderDate { get; private set; }
         public EnumsOrder.DeliveryOption DeliveryOption { get; private set; }
         public DateTime DeliveryDate { get; private set; }
