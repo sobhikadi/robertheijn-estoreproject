@@ -12,7 +12,6 @@ namespace LogicLayerEntitiesLibrary.Products
         public string Slogan { get; private set; }
         public DateTime StartDateTime { get; private set; }
         public DateTime EndDateTime { get; private set; }
-        public int ProductId { get; private set; }
         public int QuatityRequired { get; private set; }
         public double Discount { get; private set; }
         public EnumsProduct.BonusRules BonusRule { get; private set; }

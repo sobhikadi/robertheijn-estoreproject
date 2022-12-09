@@ -12,9 +12,14 @@ namespace DesktopApplication.Forms
 {
     public partial class Main : Form
     {
-        public Main()
+        private string role;
+        private LogIn login;
+
+        public Main(LogIn login, string role)
         {
             InitializeComponent();
+            this.role = role;
+            this.login = login;
         }
     }
 }
