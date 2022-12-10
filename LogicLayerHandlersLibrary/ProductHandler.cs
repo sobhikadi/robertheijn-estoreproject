@@ -53,9 +53,7 @@ namespace LogicLayerHandlersLibrary
 
         public List<Product> SearchProduct(string term, ProductSearchType type)
         {
-            List<Product> sproducts = new List<Product>();
-            //return dbHandlerProducts.SearchProduct(term, type);
-            return sproducts;
+            return dbHandlerProducts.SearchProduct(term, type);
         }
 
         private bool CheckProductExist(Product product)

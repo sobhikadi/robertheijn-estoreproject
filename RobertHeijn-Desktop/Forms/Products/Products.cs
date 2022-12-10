@@ -41,18 +41,23 @@ namespace DesktopApplication.Forms.Products
             List<string> catgeories = new List<string>();
             List<string> subCatgeories = new List<string>();
 
+            catgeories.Clear();
+            subCatgeories.Clear();
+
             foreach (Product product in productHandler.Products)
             {
-                catgeories.Clear();
-                subCatgeories.Clear();
-
                 catgeories.Add(product.Category);
                 subCatgeories.Add(product.SubCategory);
             }
+
+            List<string> disCat = catgeories.Distinct().ToList();
+            List<string> disSubCat = subCatgeories.Distinct().ToList();
+
+
             cboxSearchTermCat.DataSource = null;
-            cboxSearchTermCat.DataSource = catgeories;
+            cboxSearchTermCat.DataSource = disCat;
             cboxSearchTermSub.DataSource = null;
-            cboxSearchTermSub.DataSource = subCatgeories;
+            cboxSearchTermSub.DataSource = disSubCat;
         }
 
         private void cboxSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)

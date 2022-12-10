@@ -11,5 +11,6 @@ namespace DataAccessLibrary.Products
     {
         public int InsertProduct(Product product);
         public List<Product> GetAllProducts();
+        public List<Product> SearchProduct(string term, ProductSearchType type);
     }
 }

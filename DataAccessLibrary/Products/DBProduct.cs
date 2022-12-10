@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LogicLayerEntitiesLibrary.Products;
+using LogicLayerEntitiesLibrary.Exceptions;
 
 namespace DataAccessLibrary.Products
 {
@@ -64,6 +65,56 @@ namespace DataAccessLibrary.Products
                     Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], (string)dr["category"], (string)dr["sub_category"], (string)dr["unit"], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
 
                     products.Add(product);
+                }
+            }
+            return products;
+        }
+
+        public List<Product> SearchProduct(string term, ProductSearchType type)
+        {
+            List<Product> products = new List<Product>();
+            string query = "";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                if (type == ProductSearchType.category)
+                {
+                    query = "select * from Product WHERE category = @term ORDER BY id;";
+                }
+                else if (type == ProductSearchType.sub_category)
+                {
+                    query = "select * from Product WHERE sub_category = @term ORDER BY id;";
+                }
+                else
+                {
+                    query = $"select * from Product WHERE {type} LIKE '%{term}%' ORDER BY id;";
+                }
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@term", term);
+                
+
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        byte[]? image;
+                        DateTime? lastModified;
+
+                        if (dr["image"] != DBNull.Value) image = (byte[])dr["image"];
+                        else image = null;
+                        if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
+                        else lastModified = null;
+
+                        Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], (string)dr["category"], (string)dr["sub_category"], (string)dr["unit"], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
+                        products.Add(product);
+                    }
+                }
+                else
+                {
+                    throw new NoResultException("No results found");
                 }
             }
             return products;

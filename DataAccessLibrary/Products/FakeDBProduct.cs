@@ -18,5 +18,10 @@ namespace DataAccessLibrary.Products
         {
             throw new NotImplementedException();
         }
+
+        public List<Product> SearchProduct(string term, ProductSearchType type)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
