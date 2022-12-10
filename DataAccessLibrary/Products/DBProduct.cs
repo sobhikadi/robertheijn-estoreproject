@@ -43,41 +43,29 @@ namespace DataAccessLibrary.Products
         {
             List<Product> products = new List<Product>();
 
-            //using (SqlConnection conn = new SqlConnection(connectionString))
-            //{
-            //    conn.Open();
-            //    string sql = "select id, name, quantity, price, category, subcategory, description, isbn, platform, serialNumber, color, image, lastModified from product order by id;";
-            //    SqlCommand cmd = new SqlCommand(sql, conn);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "select * from product order by id;";
+                SqlCommand cmd = new SqlCommand(sql, conn);
 
-            //    SqlDataReader dr = cmd.ExecuteReader();
+                SqlDataReader dr = cmd.ExecuteReader();
 
-            //    while (dr.Read())
-            //    {
-            //        string? isbn, serialNumber, color, platform;
-            //        byte[]? image;
-            //        DateTime? lastModified;
+                while (dr.Read())
+                {
+                    byte[]? image;
+                    DateTime? lastModified;
 
-            //        if (dr["isbn"] != DBNull.Value) isbn = (string)dr["isbn"];
-            //        else isbn = null;
-            //        if (dr["serialNumber"] != DBNull.Value) serialNumber = (string)dr["serialNumber"];
-            //        else serialNumber = null;
-            //        if (dr["color"] != DBNull.Value) color = (string)dr["color"];
-            //        else color = null;
-            //        if (dr["platform"] != DBNull.Value) platform = (string)dr["platform"];
-            //        else platform = null;
-            //        if (dr["image"] != DBNull.Value) image = (byte[])dr["image"];
-            //        else image = null;
-            //        if (dr["lastModified"] != DBNull.Value) lastModified = (DateTime)dr["lastModified"];
-            //        else lastModified = null;
+                    if (dr["image"] != DBNull.Value) image = (byte[])dr["image"];
+                    else image = null;
+                    if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
+                    else lastModified = null;
 
-            //        SingleProduct product = new SingleProduct(Convert.ToInt32(dr["id"]), (string)dr["name"], (string)dr["description"], Convert.ToInt32(dr["quantity"]), Convert.ToDouble(dr["price"]), (string)dr["category"], (string)dr["subCategory"], isbn, serialNumber, color, platform, image, lastModified);
+                    Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], (string)dr["category"], (string)dr["sub_category"], (string)dr["unit"], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
 
-            //        product.GetSpecsFromDB(GetProductSpecifications(Convert.ToInt32(dr["id"])));
-
-            //        products.Add(product);
-            //    }
-            //    conn.Close();
-            //}
+                    products.Add(product);
+                }
+            }
             return products;
         }
 

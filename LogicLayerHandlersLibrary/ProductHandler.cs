@@ -69,11 +69,8 @@ namespace LogicLayerHandlersLibrary
 
         private void UpdateListOfProducts()
         {
-            //products.Clear();
-            //foreach (Product product in dbHandlerProducts.GetAllProducts())
-            //{
-            //    products.Add(product);
-            //}  
+            products.Clear();
+            products.AddRange(dbHandlerProducts.GetAllProducts());
         }
     }
 }

@@ -289,12 +289,12 @@
             // Price
             // 
             this.Price.Text = "Price";
-            this.Price.Width = 150;
+            this.Price.Width = 100;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "In Stock";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Text = "Stock";
+            this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 

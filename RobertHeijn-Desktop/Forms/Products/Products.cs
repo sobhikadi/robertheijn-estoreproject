@@ -149,7 +149,18 @@ namespace DesktopApplication.Forms.Products
             item.SubItems.Add(product.Category);
             item.SubItems.Add(product.SubCategory);
             item.SubItems.Add(product.Price.ToString());
-            item.SubItems.Add(product.InStock.ToString());
+            if (product.InStock)
+            {
+                item.SubItems.Add("In Stock");
+                item.SubItems[6].BackColor = Color.Green;
+            }
+            else
+            {
+                item.SubItems.Add("Out Of Stock");
+                item.SubItems[6].BackColor = Color.Red;
+            }
+
+            item.UseItemStyleForSubItems = false;
 
             listViewProducts.Items.Add(item);
         }
