@@ -57,7 +57,7 @@ namespace DataAccessLibrary.Products
                 cmd.Parameters.AddWithValue("@unit", newProduct.Unit);
                 cmd.Parameters.AddWithValue("@price", newProduct.Price);
                 cmd.Parameters.AddWithValue("@stock", newProduct.InStock);
-                cmd.Parameters.AddWithValue("@lastModified", DateTime.Now);
+                cmd.Parameters.AddWithValue("@lastModified", newProduct.LastModified);
                 if (newProduct.Image != null) cmd.Parameters.AddWithValue("@image", newProduct.Image);
                 else cmd.Parameters.Add("@image", SqlDbType.VarBinary).Value = DBNull.Value;
 
