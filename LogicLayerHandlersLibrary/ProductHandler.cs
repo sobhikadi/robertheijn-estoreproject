@@ -24,7 +24,6 @@ namespace LogicLayerHandlersLibrary
 
         public void AddProduct(Product product)
         {
-            if (CheckProductExist(product)) throw new Exception($"Product with the name {product.Name} already exists");
             int id = dbHandlerProducts.InsertProduct(product);
             if (id == 0) throw new Exception("Product has not been added successfully");
             product.Id = id;
@@ -45,24 +44,14 @@ namespace LogicLayerHandlersLibrary
 
         public void DeleteProduct(Product product)
         {
-            //if (CheckProductExist(product) == false) throw new Exception($"Product with the name {product.Name} does not exist");
-            //bool deleted = dbHandlerProducts.DeleteProduct(product);
-            //if (!deleted) throw new ArgumentException("Product has not been deleted successfully");
-            //products.Remove(product);
+            bool deleted = dbHandlerProducts.DeleteProduct(product);
+            if (!deleted) throw new ArgumentException("Product has not been deleted successfully");
+            products.Remove(product);
         }
 
         public List<Product> SearchProduct(string term, ProductSearchType type)
         {
             return dbHandlerProducts.SearchProduct(term, type);
-        }
-
-        private bool CheckProductExist(Product product)
-        {
-            foreach (Product prod in products)
-            {
-                if (prod.Name == product.Name) return true;
-            }
-            return false;
         }
 
         private void UpdateListOfProducts()

@@ -40,6 +40,24 @@ namespace DataAccessLibrary.Products
             return id;
         }
 
+        public bool DeleteProduct(Product product)
+        {
+            if (CheckIfProductExist(product.Name) == false) throw new ArgumentException("Product does not exist in the database");
+            bool deleted = false;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "Delete from Product where id = @id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", product.Id);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected == 0) return deleted;
+                deleted = true;
+            }
+            return deleted;
+        }
+
         public List<Product> GetAllProducts()
         {
             List<Product> products = new List<Product>();
@@ -91,7 +109,7 @@ namespace DataAccessLibrary.Products
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                cmd.Parameters.AddWithValue("@term", term);
+                if(type == ProductSearchType.category || type ==ProductSearchType.sub_category) cmd.Parameters.AddWithValue("@term", term);
                 
 
                 conn.Open();

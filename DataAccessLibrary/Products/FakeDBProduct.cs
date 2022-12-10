@@ -9,6 +9,11 @@ namespace DataAccessLibrary.Products
 {
     public class FakeDBProduct : IDBMediatorProducts
     {
+        public bool DeleteProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetAllProducts()
         {
             throw new NotImplementedException();

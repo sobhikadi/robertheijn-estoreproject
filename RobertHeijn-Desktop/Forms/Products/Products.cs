@@ -217,25 +217,25 @@ namespace DesktopApplication.Forms.Products
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-            //if (selectedProduct == null)
-            //{
-            //    MessageBox.Show("Please select a product first");
-            //    return;
-            //}
-            //DialogResult dr = MessageBox.Show($"Are You sure you want to Delete this Product ({selectedProduct.Name}) ?", "Delete Product?", MessageBoxButtons.OKCancel);
-            //if (dr == DialogResult.OK)
-            //{
-            //    try
-            //    {
-            //        productHandler.DeleteProduct(selectedProduct);
-            //        MessageBox.Show("Product has successfully been deleted");
-            //        btnShowAllProducts.PerformClick();
-            //    }
-            //    catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
-            //    catch (Exception ex) { MessageBox.Show(ex.Message); }
+            if (selectedProduct == null)
+            {
+                MessageBox.Show("Please select a product first");
+                return;
+            }
+            DialogResult dr = MessageBox.Show($"Are You sure you want to Delete this Product ({selectedProduct.Name}) ?", "Delete Product?", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.OK)
+            {
+                try
+                {
+                    productHandler.DeleteProduct(selectedProduct);
+                    MessageBox.Show("Product has successfully been deleted");
+                    btnShowAllProducts.PerformClick();
+                }
+                catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
 
-            //}
-            //else return;
+            }
+            else return;
         }
     }
 }
