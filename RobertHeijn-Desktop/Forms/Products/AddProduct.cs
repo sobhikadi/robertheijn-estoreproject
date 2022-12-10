@@ -38,7 +38,6 @@ namespace DesktopApplication.Forms.Products
                 {
                     if (string.IsNullOrEmpty(tbProductPrice.Text)) { throw new NullValueException("Please enter a price"); }
 
-
                     name = tbProductName.Text;
                     category = tbCategory.Text;
                     subCategory = tbsubCaregory.Text;

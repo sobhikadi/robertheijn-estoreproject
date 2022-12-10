@@ -20,7 +20,7 @@ namespace DesktopApplication.Forms.Products
         private Product? selectedProduct;
 
         private bool addproductFormOpen = false;
-        public static bool UPDATE_PRODUCT_FORM_OPEN = false;
+        public  bool updateProductFormOpen = false;
 
         public Products()
         {
@@ -190,23 +190,34 @@ namespace DesktopApplication.Forms.Products
 
         private void btnOpenUpdateProduct_Click(object sender, EventArgs e)
         {
-            //if (selectedProduct == null)
-            //{
-            //    MessageBox.Show("Please select a product from the list first");
-            //    return;
-            //}
-            //if (UPDATE_PRODUCT_FORM_OPEN != false)
-            //{
-            //    MessageBox.Show("There is already a window open");
-            //    return;
-            //}
-            //else
-            //{
-            //    UpdateProduct updateProductForm = new UpdateProduct(productHandler, selectedProduct);
-            //    UPDATE_PRODUCT_FORM_OPEN = true;
-            //    updateProductForm.FormClosed += AddProductForm_FormClosed;
-            //    updateProductForm.Show();
-            //}
+            try
+            {
+                if (selectedProduct == null)
+                {
+                    MessageBox.Show("Please select a product from the list first");
+                    return;
+                }
+                if (updateProductFormOpen != false)
+                {
+                    MessageBox.Show("There is already a window open");
+                    return;
+                }
+                else
+                {
+                    UpdateProduct updateProductForm = new UpdateProduct(productHandler, selectedProduct);
+                    updateProductFormOpen = true;
+                    updateProductForm.FormClosed += UpdateProductForm_FormClosed; ;
+                    updateProductForm.Show();
+                }
+            }
+            catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void UpdateProductForm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            btnShowAllProducts.PerformClick();
+            updateProductFormOpen = false;
         }
 
         private void AddProductForm_FormClosed(object? sender, FormClosedEventArgs e)

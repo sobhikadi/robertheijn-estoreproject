@@ -40,6 +40,33 @@ namespace DataAccessLibrary.Products
             return id;
         }
 
+        public bool UpdateProduct(Product newProduct, Product currentProduct)
+        {
+            bool update = false;
+            if (!CheckIfProductModified(currentProduct)) throw new ArgumentException("Product has been modified while you were changing the information");
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "Update Product set name = @name, category = @category, sub_category = @sub_category, unit = @unit, price = @price, stock = @stock, Image = @image, last_modified = @lastModified where product.id = @productId";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@productId", currentProduct.Id);
+                cmd.Parameters.AddWithValue("@name", newProduct.Name);
+                cmd.Parameters.AddWithValue("@category", newProduct.Category);
+                cmd.Parameters.AddWithValue("@sub_Category", newProduct.SubCategory);
+                cmd.Parameters.AddWithValue("@unit", newProduct.Unit);
+                cmd.Parameters.AddWithValue("@price", newProduct.Price);
+                cmd.Parameters.AddWithValue("@stock", newProduct.InStock);
+                cmd.Parameters.AddWithValue("@lastModified", DateTime.Now);
+                if (newProduct.Image != null) cmd.Parameters.AddWithValue("@image", newProduct.Image);
+                else cmd.Parameters.Add("@image", SqlDbType.VarBinary).Value = DBNull.Value;
+
+                cmd.ExecuteNonQuery();
+                if (cmd.ExecuteNonQuery() != 0) update = true;
+            }
+            return update;
+        }
+
         public bool DeleteProduct(Product product)
         {
             if (CheckIfProductExist(product.Name) == false) throw new ArgumentException("Product does not exist in the database");
@@ -154,6 +181,28 @@ namespace DataAccessLibrary.Products
                 if (dr.Read()) exist = true;
             }
             return exist;
+        }
+
+        private bool CheckIfProductModified(Product currentProduct)
+        {
+            bool notModified = false;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "select id from Product where (product.id = @productId) AND (last_modified is null OR last_modified = @lastModifiedCurrent)";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@productId", currentProduct.Id);
+                if (currentProduct.LastModified != null) cmd.Parameters.AddWithValue("@lastModifiedCurrent", currentProduct.LastModified);
+                else cmd.Parameters.AddWithValue("@lastModifiedCurrent", DBNull.Value);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    if ((int)dr["id"] == currentProduct.Id) notModified = true;
+                }
+            }
+            return notModified;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace DataAccessLibrary.Products
     public interface IDBMediatorProducts
     {
         public int InsertProduct(Product product);
-
+        public bool UpdateProduct(Product newProduct, Product currentProduct);
         public bool DeleteProduct(Product product);
         public List<Product> GetAllProducts();
         public List<Product> SearchProduct(string term, ProductSearchType type);

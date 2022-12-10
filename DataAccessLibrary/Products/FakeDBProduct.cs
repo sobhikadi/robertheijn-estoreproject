@@ -28,5 +28,10 @@ namespace DataAccessLibrary.Products
         {
             throw new NotImplementedException();
         }
+
+        public bool UpdateProduct(Product newProduct, Product currentProduct)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

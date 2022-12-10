@@ -32,14 +32,13 @@ namespace LogicLayerHandlersLibrary
 
         public void UpdateProduct(Product newProduct, Product currentProduct)
         {
-            //bool success = dbHandlerProducts.UpdateProduct(newProduct, currentProduct);
+            bool success = dbHandlerProducts.UpdateProduct(newProduct, currentProduct);
+            if (!success) throw new ArgumentException("Product has not been updated successfully");
 
-            //if (!success) throw new ArgumentException("");
-
-            //if (!products.Contains(currentProduct)) throw new ArgumentException("");
-
-            //currentProduct.ChangeInformation(newProduct);
-
+            foreach (Product p in products) 
+            {
+                if(p.Id == currentProduct.Id) p.ChangeInformation(newProduct);
+            }
         }
 
         public void DeleteProduct(Product product)

@@ -1,6 +1,7 @@
 ﻿using LogicLayerEntitiesLibrary.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,6 +85,18 @@ namespace LogicLayerEntitiesLibrary.Products
             Price = price;
             InStock = inStock;
             Image = image;
+        }
+
+        public void ChangeInformation(Product newProduct)
+        { 
+            Name = newProduct.name;
+            Category = newProduct.Category;
+            SubCategory = newProduct.SubCategory;
+            Unit = newProduct.Unit;
+            Price = newProduct.Price;
+            InStock = newProduct.InStock;
+            Image = newProduct.Image;
+            LastModified = newProduct.LastModified;
         }
     }
 }
