@@ -14,7 +14,7 @@ namespace LogicLayerEntitiesLibrary.Products
         public DateTime EndDateTime { get; private set; }
         public int QuatityRequired { get; private set; }
         public double Discount { get; private set; }
-        public EnumsProduct.BonusRules BonusRule { get; private set; }
+        public BonusRules BonusRule { get; private set; }
 
     }
 }

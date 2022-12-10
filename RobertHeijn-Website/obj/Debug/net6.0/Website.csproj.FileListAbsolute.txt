@@ -33,3 +33,9 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\ref\Website.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

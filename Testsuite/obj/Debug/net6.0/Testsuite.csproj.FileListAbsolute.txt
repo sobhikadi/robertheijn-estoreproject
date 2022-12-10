@@ -105,3 +105,9 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\Testsuite.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\Testsuite.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\ref\Testsuite.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

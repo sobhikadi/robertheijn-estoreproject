@@ -19,7 +19,7 @@ namespace DesktopApplication.Forms.Products
         private ProductHandler productHandler;
         private Product? selectedProduct;
 
-        public static bool ADD_PRODUCT_FORM_OPEN = false;
+        private bool addproductFormOpen = false;
         public static bool UPDATE_PRODUCT_FORM_OPEN = false;
 
         public Products()
@@ -31,29 +31,28 @@ namespace DesktopApplication.Forms.Products
         {
             try
             {
-                productHandler = new ProductHandler();
+                productHandler = new ProductHandler(new DBProduct());
             }
             catch (SqlException) { MessageBox.Show("Unable to communicate with database"); }
             cboxSearchCriteria.DataSource = null;
             cboxSearchCriteria.DataSource = Enum.GetValues(typeof(ProductSearchType));
 
 
-            //List<string> catgeories = new List<string>();
-            //List<string> subCatgeories = new List<string>();
+            List<string> catgeories = new List<string>();
+            List<string> subCatgeories = new List<string>();
 
-            //foreach (Product product in productHandler.Products)
-            //{
-            //    catgeories.Clear();
-            //    subCatgeories.Clear();
+            foreach (Product product in productHandler.Products)
+            {
+                catgeories.Clear();
+                subCatgeories.Clear();
 
-            //    catgeories.Add(product.Category);
-            //    subCatgeories.Add(product.SubCategory);
-
-            //}
-            //cboxSearchTermCat.DataSource = null;
-            //cboxSearchTermCat.DataSource = catgeories.Distinct();
-            //cboxSearchTermSub.DataSource = null;
-            //cboxSearchTermSub.DataSource = subCatgeories.Distinct();
+                catgeories.Add(product.Category);
+                subCatgeories.Add(product.SubCategory);
+            }
+            cboxSearchTermCat.DataSource = null;
+            cboxSearchTermCat.DataSource = catgeories;
+            cboxSearchTermSub.DataSource = null;
+            cboxSearchTermSub.DataSource = subCatgeories;
         }
 
         private void cboxSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,51 +79,49 @@ namespace DesktopApplication.Forms.Products
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
         {
-            //listViewProducts.Items.Clear();
-            //string serchTerm = null;
-            //try
-            //{
-            //    if (tbSearchTerm.Visible == true)
-            //    {
-            //        if (string.IsNullOrEmpty(tbSearchTerm.Text)) throw new Exception("Please enter a search term");
-            //        serchTerm = tbSearchTerm.Text;
-            //    }
-            //    if (cboxSearchTermCat.Visible == true)
-            //    {
-            //        serchTerm = cboxSearchTermCat.Text;
-            //    }
-            //    if (cboxSearchTermSub.Visible == true)
-            //    {
-            //        serchTerm = cboxSearchTermSub.Text;
-            //    }
+            listViewProducts.Items.Clear();
+            string serchTerm = null;
+            try
+            {
+                if (tbSearchTerm.Visible == true)
+                {
+                    if (string.IsNullOrEmpty(tbSearchTerm.Text)) throw new Exception("Please enter a search term");
+                    serchTerm = tbSearchTerm.Text;
+                }
+                if (cboxSearchTermCat.Visible == true)
+                {
+                    serchTerm = cboxSearchTermCat.Text;
+                }
+                if (cboxSearchTermSub.Visible == true)
+                {
+                    serchTerm = cboxSearchTermSub.Text;
+                }
 
-            //    List<Product> products = new List<Product>();
-            //    products.AddRange(productHandler.SearchProduct(serchTerm, (ProductSearchType)cboxSearchCriteria.SelectedValue));
+                List<Product> products = new List<Product>();
+                products.AddRange(productHandler.SearchProduct(serchTerm, (ProductSearchType)cboxSearchCriteria.SelectedValue));
 
-            //    foreach (Product product in products)
-            //    {
-            //        AddProductToListView(product);
-            //    }
-            //}
-            //catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
-            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+                foreach (Product product in products)
+                {
+                    AddProductToListView(product);
+                }
+            }
+            catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void btnShowAllProducts_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    listViewProducts.Items.Clear();
-
-            //    foreach (Product product in productHandler.Products)
-            //    {
-            //        AddProductToListView(product);
-            //    }
-            //    selectedProduct = null;
-
-            //}
-            //catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
-            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+            try
+            {
+                listViewProducts.Items.Clear();
+                foreach (Product product in productHandler.Products)
+                {
+                    AddProductToListView(product);
+                }
+                selectedProduct = null;
+            }
+            catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void listViewProducts_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -159,18 +156,18 @@ namespace DesktopApplication.Forms.Products
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            //if (ADD_PRODUCT_FORM_OPEN != false)
-            //{
-            //    MessageBox.Show("There is already a window open");
-            //    return;
-            //}
-            //else
-            //{
-            //    AddProduct addProductForm = new AddProduct(productHandler);
-            //    addProductForm.FormClosed += AddProductForm_FormClosed; 
-            //    ADD_PRODUCT_FORM_OPEN = true;
-            //    addProductForm.Show();
-            //}
+            if (addproductFormOpen != false)
+            {
+                MessageBox.Show("There is already a window open");
+                return;
+            }
+            else
+            {
+                AddProduct addProductForm = new AddProduct(productHandler);
+                addProductForm.FormClosed += AddProductForm_FormClosed;
+                addproductFormOpen = true;
+                addProductForm.Show();
+            }
         }
 
         
@@ -199,6 +196,7 @@ namespace DesktopApplication.Forms.Products
         private void AddProductForm_FormClosed(object? sender, FormClosedEventArgs e)
         {
             btnShowAllProducts.PerformClick();
+            addproductFormOpen = false;
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)

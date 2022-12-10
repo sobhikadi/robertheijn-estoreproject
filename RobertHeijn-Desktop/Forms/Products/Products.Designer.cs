@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gboxSearchProduct = new System.Windows.Forms.GroupBox();
+            this.cboxSearchTermSub = new System.Windows.Forms.ComboBox();
             this.cboxSearchTermCat = new System.Windows.Forms.ComboBox();
             this.cboxSearchCriteria = new System.Windows.Forms.ComboBox();
             this.lblSearchCriteria = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.Price = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.cboxSearchTermSub = new System.Windows.Forms.ComboBox();
             this.gboxSearchProduct.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,17 @@
             this.gboxSearchProduct.TabIndex = 1;
             this.gboxSearchProduct.TabStop = false;
             this.gboxSearchProduct.Text = "Search Product Or Show All Products";
+            // 
+            // cboxSearchTermSub
+            // 
+            this.cboxSearchTermSub.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxSearchTermSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxSearchTermSub.FormattingEnabled = true;
+            this.cboxSearchTermSub.Location = new System.Drawing.Point(163, 25);
+            this.cboxSearchTermSub.Name = "cboxSearchTermSub";
+            this.cboxSearchTermSub.Size = new System.Drawing.Size(783, 31);
+            this.cboxSearchTermSub.TabIndex = 15;
             // 
             // cboxSearchTermCat
             // 
@@ -124,6 +135,7 @@
             this.btnShowAllProducts.TabIndex = 8;
             this.btnShowAllProducts.Text = "Show All Products";
             this.btnShowAllProducts.UseVisualStyleBackColor = false;
+            this.btnShowAllProducts.Click += new System.EventHandler(this.btnShowAllProducts_Click);
             // 
             // btnSearchProduct
             // 
@@ -288,17 +300,6 @@
             // 
             this.columnHeader2.Text = "Bonus";
             this.columnHeader2.Width = 300;
-            // 
-            // cboxSearchTermSub
-            // 
-            this.cboxSearchTermSub.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboxSearchTermSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxSearchTermSub.FormattingEnabled = true;
-            this.cboxSearchTermSub.Location = new System.Drawing.Point(163, 25);
-            this.cboxSearchTermSub.Name = "cboxSearchTermSub";
-            this.cboxSearchTermSub.Size = new System.Drawing.Size(783, 31);
-            this.cboxSearchTermSub.TabIndex = 15;
             // 
             // Products
             // 
