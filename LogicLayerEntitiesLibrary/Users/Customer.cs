@@ -33,7 +33,7 @@ namespace LogicLayerEntitiesLibrary.Users
             orders = new List<Order>();
         }
 
-        public Customer(int id, string fName, string lName, string email, string password) : base(id, fName, lName, email, password)
+        public Customer(int id, string fName, string lName, string email) : base(id, fName, lName, email)
         {
             orders = new List<Order>();
         }

@@ -31,14 +31,12 @@ namespace LogicLayerEntitiesLibrary.Users
             Password = HashPassword(password, Salt);
         }
 
-        public User(int id, string fName, string lName, string email, string password)
+        public User(int id, string fName, string lName, string email)
         {
             Id = id;
             FirstName = fName;
             LastName = lName;
             Email = email;
-            Salt = CreateSalt();
-            Password = HashPassword(password, Salt);
         }
 
 

@@ -18,7 +18,7 @@ namespace LogicLayerEntitiesLibrary.Users
         {
             EmployeeRole = employeeRole;
         }
-        public Employee(int id, string fName, string lName, string email, string password, DateTime? lastModified, EmployeeRole employeeRole) : base(id, fName, lName, email, password)
+        public Employee(int id, string fName, string lName, string email, DateTime? lastModified, EmployeeRole employeeRole) : base(id, fName, lName, email)
         {
             EmployeeRole = employeeRole;
         }
