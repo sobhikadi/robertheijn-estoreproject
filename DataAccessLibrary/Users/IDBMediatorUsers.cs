@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicLayerEntitiesLibrary.Users;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,11 @@ namespace DataAccessLibrary.Employees
 {
     public interface IDBMediatorUsers
     {
+        public int InsertUser(User user);
+
+        public List<User> SearchEmployee(string term, EmployeeSearchType type);
+
+        public List<User> GetAllUsers();
+
     }
 }

@@ -138,7 +138,6 @@ namespace DataAccessLibrary.Products
 
                 if(type == ProductSearchType.category || type ==ProductSearchType.sub_category) cmd.Parameters.AddWithValue("@term", term);
                 
-
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)

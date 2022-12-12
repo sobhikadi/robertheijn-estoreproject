@@ -1,4 +1,5 @@
 ﻿using DataAccessLibrary.Products;
+using LogicLayerEntitiesLibrary.Exceptions;
 using LogicLayerEntitiesLibrary.Products;
 using LogicLayerHandlersLibrary;
 using System;
@@ -90,7 +91,7 @@ namespace DesktopApplication.Forms.Products
             {
                 if (tbSearchTerm.Visible == true)
                 {
-                    if (string.IsNullOrEmpty(tbSearchTerm.Text)) throw new Exception("Please enter a search term");
+                    if (string.IsNullOrEmpty(tbSearchTerm.Text)) throw new NullValueException("Please enter a search term");
                     serchTerm = tbSearchTerm.Text;
                 }
                 if (cboxSearchTermCat.Visible == true)
@@ -186,7 +187,11 @@ namespace DesktopApplication.Forms.Products
             }
         }
 
-        
+        private void AddProductForm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            btnShowAllProducts.PerformClick();
+            addproductFormOpen = false;
+        }
 
         private void btnOpenUpdateProduct_Click(object sender, EventArgs e)
         {
@@ -218,12 +223,6 @@ namespace DesktopApplication.Forms.Products
         {
             btnShowAllProducts.PerformClick();
             updateProductFormOpen = false;
-        }
-
-        private void AddProductForm_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            btnShowAllProducts.PerformClick();
-            addproductFormOpen = false;
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)

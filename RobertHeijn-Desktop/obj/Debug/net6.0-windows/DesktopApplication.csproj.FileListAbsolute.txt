@@ -40,3 +40,5 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Statistics.Statistics.resources
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Products.AddProduct.resources
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Products.UpdateProduct.resources
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Employees.AddEmployee.resources
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.Forms.Employees.UpdateEmployee.resources

@@ -25,7 +25,7 @@ namespace LogicLayerHandlersLibrary
         public void AddProduct(Product product)
         {
             int id = dbHandlerProducts.InsertProduct(product);
-            if (id == 0) throw new Exception("Product has not been added successfully");
+            if (id == 0) throw new ArgumentException("Product has not been added successfully");
             product.Id = id;
             products.Add(product);
         }

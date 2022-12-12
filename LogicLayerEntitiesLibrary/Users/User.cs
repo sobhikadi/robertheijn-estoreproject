@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Konscious.Security.Cryptography;
+using LogicLayerEntitiesLibrary.Exceptions;
 
 namespace LogicLayerEntitiesLibrary.Users
 {
@@ -15,9 +17,31 @@ namespace LogicLayerEntitiesLibrary.Users
         
 
         public int Id { get; set; }
-        public string FirstName { get { return firstName; } private set { firstName = value; } }
-        public string LastName { get { return lastName; } private set { lastName = value; } }
-        public string Email { get { return email; } private set { email = value; } }
+        public string FirstName { get { return firstName; }
+            private set
+            {
+                if (string.IsNullOrEmpty(value)) throw new NullValueException("The field first name cannot be empty");
+                if (value.Length < 2 || value.Length > 255) throw new OutOfrangeException("First name must have at least 2 charachters and maximum of 255 charachters");
+                firstName = value;
+            }
+        }
+        public string LastName { get { return lastName; }
+            private set
+            {
+                if (string.IsNullOrEmpty(value)) throw new NullValueException("The field last name cannot be empty");
+                if (value.Length < 2 || value.Length > 255) throw new OutOfrangeException("Last name must have at least 2 charachters and maximum of 255 charachters");
+                lastName = value;
+            }
+        }
+        public string Email { get { return email; }
+            private set
+            {
+                if (string.IsNullOrEmpty(value)) throw new NullValueException("The field email cannot be empty");
+                Regex regex = new Regex(@"([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$");
+                if (!regex.IsMatch(value)) throw new ArgumentException("Email has been entered in an incorrect format");
+                email = value;
+            }
+        }
         public byte[] Salt { get { return salt; } private set { salt = value; } }
         public byte[] Password { get { return password; } private set { password = value; } }
         
