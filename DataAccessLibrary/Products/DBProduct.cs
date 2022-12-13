@@ -92,7 +92,7 @@ namespace DataAccessLibrary.Products
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "select * from product order by id;";
+                string sql = "select * from ViewProductInfo order by id;";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -164,6 +164,86 @@ namespace DataAccessLibrary.Products
             return products;
         }
 
+        public int InsertSuffix(Suffix suffix, ProductSuffix type) 
+        {
+            string sql = "";
+            int id = 0;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                if (type == ProductSuffix.category) 
+                {
+                    sql = "insert into ProductCategory (category) values (@name); select SCOPE_IDENTITY();";
+                }
+                else if (type == ProductSuffix.subcategory)
+                {
+                    sql = "insert into ProductSubCategory (sub_category) values (@name); select SCOPE_IDENTITY();";
+                }
+                else
+                {
+                    sql = "insert into ProductUnit (unit) values (@name); select SCOPE_IDENTITY();";
+                }
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@name", suffix.Name);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read()) id = Convert.ToInt32(dr[0]);
+            }
+            return id;
+        }
+
+        public List<Suffix> GetSuffixes() 
+        {
+            List<Suffix> suffixes = new List<Suffix>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                
+                conn.Open();
+                string sql = "select * from productCategory order by id;";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    suffixes.Add(new Category(Convert.ToInt32(dr["id"]), (string)dr["category"]));
+                }
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                conn.Open();
+                string sql = "select * from productSubCategory order by id;";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    suffixes.Add(new SubCategory(Convert.ToInt32(dr["id"]), (string)dr["sub_category"]));
+                }
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                conn.Open();
+                string sql = "select * from productUnit order by id;";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    suffixes.Add(new Unit(Convert.ToInt32(dr["id"]), (string)dr["unit"]));
+                }
+            }
+            return suffixes;
+
+        }
+
         private bool CheckIfProductExist(string name)
         {
             bool exist = false;
@@ -203,5 +283,6 @@ namespace DataAccessLibrary.Products
             }
             return notModified;
         }
+
     }
 }

@@ -50,6 +50,7 @@
             this.Price = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.btnSuffixes = new System.Windows.Forms.Button();
             this.gboxSearchProduct.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -301,11 +302,28 @@
             this.columnHeader2.Text = "Bonus";
             this.columnHeader2.Width = 300;
             // 
+            // btnSuffixes
+            // 
+            this.btnSuffixes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSuffixes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
+            this.btnSuffixes.FlatAppearance.BorderSize = 0;
+            this.btnSuffixes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuffixes.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSuffixes.ForeColor = System.Drawing.Color.White;
+            this.btnSuffixes.Location = new System.Drawing.Point(870, 886);
+            this.btnSuffixes.Name = "btnSuffixes";
+            this.btnSuffixes.Size = new System.Drawing.Size(160, 42);
+            this.btnSuffixes.TabIndex = 47;
+            this.btnSuffixes.Text = "Suffixes";
+            this.btnSuffixes.UseVisualStyleBackColor = false;
+            this.btnSuffixes.Click += new System.EventHandler(this.btnSuffixes_Click);
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1238, 935);
+            this.Controls.Add(this.btnSuffixes);
             this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.btnOpenUpdateProduct);
@@ -348,5 +366,6 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ComboBox cboxSearchTermSub;
+        private Button btnSuffixes;
     }
 }

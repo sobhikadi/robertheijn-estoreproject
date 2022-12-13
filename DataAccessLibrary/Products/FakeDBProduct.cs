@@ -19,7 +19,17 @@ namespace DataAccessLibrary.Products
             throw new NotImplementedException();
         }
 
+        public List<Suffix> GetSuffixes()
+        {
+            throw new NotImplementedException();
+        }
+
         public int InsertProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int InsertSuffix(Suffix suffix, ProductSuffix type)
         {
             throw new NotImplementedException();
         }

@@ -16,10 +16,10 @@ namespace DesktopApplication.Forms.Products
 {
     public partial class UpdateProduct : Form
     {
-        ProductHandler productHandler;
+        ProductHandlers productHandler;
         Product currentProduct;
 
-        public UpdateProduct(ProductHandler productHandler, Product currentProduct)
+        public UpdateProduct(ProductHandlers productHandler, Product currentProduct)
         {
             InitializeComponent();
             this.productHandler = productHandler;

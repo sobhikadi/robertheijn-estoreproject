@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace LogicLayerHandlersLibrary
 {
-    public class ProductHandler
+    public class ProductHandlers
     {
         private IDBMediatorProducts dbHandlerProducts;
         private List<Product> products;
 
-        public ProductHandler(IDBMediatorProducts dBMediatorProduct)
+        public ProductHandlers(IDBMediatorProducts dBMediatorProduct)
         {
             dbHandlerProducts = dBMediatorProduct;
             products = new List<Product>();

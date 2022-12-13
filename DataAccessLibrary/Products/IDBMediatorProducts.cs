@@ -14,5 +14,7 @@ namespace DataAccessLibrary.Products
         public bool DeleteProduct(Product product);
         public List<Product> GetAllProducts();
         public List<Product> SearchProduct(string term, ProductSearchType type);
+        public int InsertSuffix(Suffix suffix, ProductSuffix type);
+        public List<Suffix> GetSuffixes();
     }
 }

@@ -17,11 +17,13 @@ namespace DesktopApplication.Forms.Products
 {
     public partial class Products : Form
     {
-        private ProductHandler productHandler;
+        private ProductHandlers productHandler;
         private Product? selectedProduct;
 
         private bool addproductFormOpen = false;
         public  bool updateProductFormOpen = false;
+        public bool suffixesFormOpen = false;
+
 
         public Products()
         {
@@ -32,7 +34,7 @@ namespace DesktopApplication.Forms.Products
         {
             try
             {
-                productHandler = new ProductHandler(new DBProduct());
+                productHandler = new ProductHandlers(new DBProduct());
             }
             catch (SqlException) { MessageBox.Show("Unable to communicate with database"); }
             cboxSearchCriteria.DataSource = null;
@@ -246,6 +248,28 @@ namespace DesktopApplication.Forms.Products
 
             }
             else return;
+        }
+
+        private void btnSuffixes_Click(object sender, EventArgs e)
+        {
+            if (suffixesFormOpen != false)
+            {
+                MessageBox.Show("There is already a window open");
+                return;
+            }
+            else
+            {
+                SuffixesHandler suffixesHandler = new(new DBProduct());
+                Suffixes suffixesForm = new Suffixes(suffixesHandler);
+                suffixesForm.FormClosed += SuffixesForm_FormClosed;
+                suffixesFormOpen = true;
+                suffixesForm.Show();
+            }
+        }
+
+        private void SuffixesForm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            suffixesFormOpen = false;
         }
     }
 }

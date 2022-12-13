@@ -16,9 +16,9 @@ namespace DesktopApplication.Forms.Products
 {
     public partial class AddProduct : Form
     {
-        private ProductHandler productHandler;
+        private ProductHandlers productHandler;
 
-        public AddProduct(ProductHandler productHandler)
+        public AddProduct(ProductHandlers productHandler)
         {
             InitializeComponent();
             this.productHandler = productHandler;
