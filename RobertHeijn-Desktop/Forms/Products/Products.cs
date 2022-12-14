@@ -18,6 +18,7 @@ namespace DesktopApplication.Forms.Products
     public partial class Products : Form
     {
         private ProductHandlers productHandler;
+        private SuffixesHandler suffixesHandler;
         private Product? selectedProduct;
 
         private bool addproductFormOpen = false;
@@ -35,32 +36,23 @@ namespace DesktopApplication.Forms.Products
             try
             {
                 productHandler = new ProductHandlers(new DBProduct());
+                suffixesHandler = new(new DBProduct());
             }
             catch (SqlException) { MessageBox.Show("Unable to communicate with database"); }
             cboxSearchCriteria.DataSource = null;
             cboxSearchCriteria.DataSource = Enum.GetValues(typeof(ProductSearchType));
 
 
-            List<string> catgeories = new List<string>();
-            List<string> subCatgeories = new List<string>();
+            cboxSearchTermCat.Items.Clear();
+            cboxSearchTermSub.Items.Clear();
 
-            catgeories.Clear();
-            subCatgeories.Clear();
-
-            foreach (Product product in productHandler.Products)
+            foreach (Suffix suffix in suffixesHandler.Suffixes)
             {
-                catgeories.Add(product.Category);
-                subCatgeories.Add(product.SubCategory);
+                if (suffix.SuffixType == SuffixType.category) cboxSearchTermCat.Items.Add(suffix);
+                else if (suffix.SuffixType == SuffixType.sub_category) cboxSearchTermSub.Items.Add(suffix);
+
             }
 
-            List<string> disCat = catgeories.Distinct().ToList();
-            List<string> disSubCat = subCatgeories.Distinct().ToList();
-
-
-            cboxSearchTermCat.DataSource = null;
-            cboxSearchTermCat.DataSource = disCat;
-            cboxSearchTermSub.DataSource = null;
-            cboxSearchTermSub.DataSource = disSubCat;
         }
 
         private void cboxSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,11 +90,11 @@ namespace DesktopApplication.Forms.Products
                 }
                 if (cboxSearchTermCat.Visible == true)
                 {
-                    serchTerm = cboxSearchTermCat.Text;
+                    serchTerm = cboxSearchTermCat.SelectedIndex.ToString();
                 }
                 if (cboxSearchTermSub.Visible == true)
                 {
-                    serchTerm = cboxSearchTermSub.Text;
+                    serchTerm = cboxSearchTermSub.SelectedIndex.ToString();
                 }
 
                 List<Product> products = new List<Product>();
@@ -153,9 +145,9 @@ namespace DesktopApplication.Forms.Products
             ListViewItem item = new ListViewItem(product.Id.ToString());
             item.Tag = product;
             item.SubItems.Add(product.Name);
-            item.SubItems.Add(product.Unit);
-            item.SubItems.Add(product.Category);
-            item.SubItems.Add(product.SubCategory);
+            item.SubItems.Add(product.Unit.Name);
+            item.SubItems.Add(product.Category.Name);
+            item.SubItems.Add(product.SubCategory.Name);
             item.SubItems.Add(product.Price.ToString());
             if (product.InStock)
             {
@@ -182,7 +174,7 @@ namespace DesktopApplication.Forms.Products
             }
             else
             {
-                AddProduct addProductForm = new AddProduct(productHandler);
+                AddProduct addProductForm = new AddProduct(productHandler, suffixesHandler);
                 addProductForm.FormClosed += AddProductForm_FormClosed;
                 addproductFormOpen = true;
                 addProductForm.Show();
@@ -211,7 +203,7 @@ namespace DesktopApplication.Forms.Products
                 }
                 else
                 {
-                    UpdateProduct updateProductForm = new UpdateProduct(productHandler, selectedProduct);
+                    UpdateProduct updateProductForm = new UpdateProduct(productHandler, selectedProduct, suffixesHandler);
                     updateProductFormOpen = true;
                     updateProductForm.FormClosed += UpdateProductForm_FormClosed; ;
                     updateProductForm.Show();
@@ -259,7 +251,6 @@ namespace DesktopApplication.Forms.Products
             }
             else
             {
-                SuffixesHandler suffixesHandler = new(new DBProduct());
                 Suffixes suffixesForm = new Suffixes(suffixesHandler);
                 suffixesForm.FormClosed += SuffixesForm_FormClosed;
                 suffixesFormOpen = true;

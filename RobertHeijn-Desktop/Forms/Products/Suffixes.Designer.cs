@@ -33,19 +33,15 @@
             this.btnAddSuffix = new System.Windows.Forms.Button();
             this.cboxSuffixType = new System.Windows.Forms.ComboBox();
             this.lblSuffixType = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSuffixText = new System.Windows.Forms.TextBox();
             this.lblSuffixText = new System.Windows.Forms.Label();
-            this.lboxCategories = new System.Windows.Forms.ListBox();
-            this.lblCategories = new System.Windows.Forms.Label();
-            this.lblSubCategories = new System.Windows.Forms.Label();
-            this.lboxSubCategories = new System.Windows.Forms.ListBox();
-            this.lblUnits = new System.Windows.Forms.Label();
-            this.lboxUnits = new System.Windows.Forms.ListBox();
+            this.lboxSuffixes = new System.Windows.Forms.ListBox();
+            this.lblSuffixes = new System.Windows.Forms.Label();
             this.gboxUpdateSuffix = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnUpdateSuffix = new System.Windows.Forms.Button();
+            this.cboxUpdateSuffixType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbUpdateSuffixType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gboxAddSuffix.SuspendLayout();
             this.gboxUpdateSuffix.SuspendLayout();
@@ -56,7 +52,7 @@
             this.gboxAddSuffix.Controls.Add(this.btnAddSuffix);
             this.gboxAddSuffix.Controls.Add(this.cboxSuffixType);
             this.gboxAddSuffix.Controls.Add(this.lblSuffixType);
-            this.gboxAddSuffix.Controls.Add(this.textBox1);
+            this.gboxAddSuffix.Controls.Add(this.tbSuffixText);
             this.gboxAddSuffix.Controls.Add(this.lblSuffixText);
             this.gboxAddSuffix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
             this.gboxAddSuffix.Location = new System.Drawing.Point(12, 12);
@@ -101,12 +97,12 @@
             this.lblSuffixType.TabIndex = 2;
             this.lblSuffixType.Text = "Suffix type";
             // 
-            // textBox1
+            // tbSuffixText
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 30);
-            this.textBox1.TabIndex = 1;
+            this.tbSuffixText.Location = new System.Drawing.Point(155, 39);
+            this.tbSuffixText.Name = "tbSuffixText";
+            this.tbSuffixText.Size = new System.Drawing.Size(269, 30);
+            this.tbSuffixText.TabIndex = 1;
             // 
             // lblSuffixText
             // 
@@ -118,101 +114,63 @@
             this.lblSuffixText.TabIndex = 0;
             this.lblSuffixText.Text = "Suffix text";
             // 
-            // lboxCategories
+            // lboxSuffixes
             // 
-            this.lboxCategories.FormattingEnabled = true;
-            this.lboxCategories.ItemHeight = 23;
-            this.lboxCategories.Location = new System.Drawing.Point(12, 267);
-            this.lboxCategories.Name = "lboxCategories";
-            this.lboxCategories.Size = new System.Drawing.Size(301, 349);
-            this.lboxCategories.TabIndex = 1;
+            this.lboxSuffixes.FormattingEnabled = true;
+            this.lboxSuffixes.ItemHeight = 23;
+            this.lboxSuffixes.Location = new System.Drawing.Point(465, 42);
+            this.lboxSuffixes.Name = "lboxSuffixes";
+            this.lboxSuffixes.Size = new System.Drawing.Size(474, 418);
+            this.lboxSuffixes.TabIndex = 1;
             // 
-            // lblCategories
+            // lblSuffixes
             // 
-            this.lblCategories.AutoSize = true;
-            this.lblCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
-            this.lblCategories.Location = new System.Drawing.Point(12, 241);
-            this.lblCategories.Name = "lblCategories";
-            this.lblCategories.Size = new System.Drawing.Size(91, 23);
-            this.lblCategories.TabIndex = 2;
-            this.lblCategories.Text = "Categories";
-            // 
-            // lblSubCategories
-            // 
-            this.lblSubCategories.AutoSize = true;
-            this.lblSubCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
-            this.lblSubCategories.Location = new System.Drawing.Point(319, 241);
-            this.lblSubCategories.Name = "lblSubCategories";
-            this.lblSubCategories.Size = new System.Drawing.Size(125, 23);
-            this.lblSubCategories.TabIndex = 4;
-            this.lblSubCategories.Text = "Sub Categories";
-            // 
-            // lboxSubCategories
-            // 
-            this.lboxSubCategories.FormattingEnabled = true;
-            this.lboxSubCategories.ItemHeight = 23;
-            this.lboxSubCategories.Location = new System.Drawing.Point(319, 267);
-            this.lboxSubCategories.Name = "lboxSubCategories";
-            this.lboxSubCategories.Size = new System.Drawing.Size(323, 349);
-            this.lboxSubCategories.TabIndex = 3;
-            // 
-            // lblUnits
-            // 
-            this.lblUnits.AutoSize = true;
-            this.lblUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
-            this.lblUnits.Location = new System.Drawing.Point(648, 241);
-            this.lblUnits.Name = "lblUnits";
-            this.lblUnits.Size = new System.Drawing.Size(49, 23);
-            this.lblUnits.TabIndex = 6;
-            this.lblUnits.Text = "Units";
-            // 
-            // lboxUnits
-            // 
-            this.lboxUnits.FormattingEnabled = true;
-            this.lboxUnits.ItemHeight = 23;
-            this.lboxUnits.Location = new System.Drawing.Point(648, 267);
-            this.lboxUnits.Name = "lboxUnits";
-            this.lboxUnits.Size = new System.Drawing.Size(288, 349);
-            this.lboxUnits.TabIndex = 5;
+            this.lblSuffixes.AutoSize = true;
+            this.lblSuffixes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
+            this.lblSuffixes.Location = new System.Drawing.Point(465, 16);
+            this.lblSuffixes.Name = "lblSuffixes";
+            this.lblSuffixes.Size = new System.Drawing.Size(67, 23);
+            this.lblSuffixes.TabIndex = 2;
+            this.lblSuffixes.Text = "Suffixes";
             // 
             // gboxUpdateSuffix
             // 
-            this.gboxUpdateSuffix.Controls.Add(this.button1);
-            this.gboxUpdateSuffix.Controls.Add(this.comboBox1);
+            this.gboxUpdateSuffix.Controls.Add(this.btnUpdateSuffix);
+            this.gboxUpdateSuffix.Controls.Add(this.cboxUpdateSuffixType);
             this.gboxUpdateSuffix.Controls.Add(this.label1);
-            this.gboxUpdateSuffix.Controls.Add(this.textBox2);
+            this.gboxUpdateSuffix.Controls.Add(this.tbUpdateSuffixType);
             this.gboxUpdateSuffix.Controls.Add(this.label2);
             this.gboxUpdateSuffix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
-            this.gboxUpdateSuffix.Location = new System.Drawing.Point(489, 12);
+            this.gboxUpdateSuffix.Location = new System.Drawing.Point(12, 244);
             this.gboxUpdateSuffix.Name = "gboxUpdateSuffix";
             this.gboxUpdateSuffix.Size = new System.Drawing.Size(447, 216);
             this.gboxUpdateSuffix.TabIndex = 49;
             this.gboxUpdateSuffix.TabStop = false;
             this.gboxUpdateSuffix.Text = "UpdateSuffix";
             // 
-            // button1
+            // btnUpdateSuffix
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(264, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 36);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnUpdateSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdateSuffix.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
+            this.btnUpdateSuffix.FlatAppearance.BorderSize = 0;
+            this.btnUpdateSuffix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateSuffix.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdateSuffix.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateSuffix.Location = new System.Drawing.Point(264, 154);
+            this.btnUpdateSuffix.Name = "btnUpdateSuffix";
+            this.btnUpdateSuffix.Size = new System.Drawing.Size(160, 36);
+            this.btnUpdateSuffix.TabIndex = 48;
+            this.btnUpdateSuffix.Text = "Update";
+            this.btnUpdateSuffix.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // cboxUpdateSuffixType
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(155, 96);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(269, 31);
-            this.comboBox1.TabIndex = 3;
+            this.cboxUpdateSuffixType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxUpdateSuffixType.FormattingEnabled = true;
+            this.cboxUpdateSuffixType.Location = new System.Drawing.Point(155, 96);
+            this.cboxUpdateSuffixType.Name = "cboxUpdateSuffixType";
+            this.cboxUpdateSuffixType.Size = new System.Drawing.Size(269, 31);
+            this.cboxUpdateSuffixType.TabIndex = 3;
             // 
             // label1
             // 
@@ -224,12 +182,12 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Suffix type";
             // 
-            // textBox2
+            // tbUpdateSuffixType
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(269, 30);
-            this.textBox2.TabIndex = 1;
+            this.tbUpdateSuffixType.Location = new System.Drawing.Point(155, 39);
+            this.tbUpdateSuffixType.Name = "tbUpdateSuffixType";
+            this.tbUpdateSuffixType.Size = new System.Drawing.Size(269, 30);
+            this.tbUpdateSuffixType.TabIndex = 1;
             // 
             // label2
             // 
@@ -245,14 +203,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 632);
+            this.ClientSize = new System.Drawing.Size(951, 474);
             this.Controls.Add(this.gboxUpdateSuffix);
-            this.Controls.Add(this.lblUnits);
-            this.Controls.Add(this.lboxUnits);
-            this.Controls.Add(this.lblSubCategories);
-            this.Controls.Add(this.lboxSubCategories);
-            this.Controls.Add(this.lblCategories);
-            this.Controls.Add(this.lboxCategories);
+            this.Controls.Add(this.lblSuffixes);
+            this.Controls.Add(this.lboxSuffixes);
             this.Controls.Add(this.gboxAddSuffix);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -274,20 +228,16 @@
         private GroupBox gboxAddSuffix;
         private ComboBox cboxSuffixType;
         private Label lblSuffixType;
-        private TextBox textBox1;
+        private TextBox tbSuffixText;
         private Label lblSuffixText;
         private Button btnAddSuffix;
-        private ListBox lboxCategories;
-        private Label lblCategories;
-        private Label lblSubCategories;
-        private ListBox lboxSubCategories;
-        private Label lblUnits;
-        private ListBox lboxUnits;
+        private ListBox lboxSuffixes;
+        private Label lblSuffixes;
         private GroupBox gboxUpdateSuffix;
-        private Button button1;
-        private ComboBox comboBox1;
+        private Button btnUpdateSuffix;
+        private ComboBox cboxUpdateSuffixType;
         private Label label1;
-        private TextBox textBox2;
+        private TextBox tbUpdateSuffixType;
         private Label label2;
     }
 }

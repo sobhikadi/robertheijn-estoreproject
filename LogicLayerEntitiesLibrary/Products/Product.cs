@@ -10,7 +10,7 @@ namespace LogicLayerEntitiesLibrary.Products
 {
     public class Product
     {
-        private string name, category, subCategory, unit;
+        private string name;
         DateTime? lastModified;
         private double price;
         private byte[]? image;
@@ -25,30 +25,11 @@ namespace LogicLayerEntitiesLibrary.Products
                 name = value;
             } 
         }
-        public string Category { get { return category; } 
-            private set 
-            {
-                if (string.IsNullOrEmpty(value)) throw new NullValueException("The field category cannot be empty");
-                if (value.Length < 3 || value.Length > 255) throw new OutOfrangeException("Category must have at least 3 charachters and maximum of 255 charachters");
-                category = value; 
-            } 
-        }
-        public string SubCategory { get { return subCategory; } 
-            private set 
-            {
-                if (string.IsNullOrEmpty(value)) throw new NullValueException("The field subcategory cannot be empty");
-                if (value.Length < 3 || value.Length > 255) throw new OutOfrangeException("Subcategory must have at least 3 charachters and maximum of 255 charachters");
-                subCategory = value; 
-            } 
-        }
-        public string Unit { get { return unit; } 
-            private set 
-            {
-                if (string.IsNullOrEmpty(value)) throw new NullValueException("The field unit cannot be empty");
-                if (value.Length < 2 || value.Length > 100) throw new OutOfrangeException("Unit must have at least 2 charachters and maximum of 100 charachters");
-                unit = value; 
-            } 
-        }
+
+        public Suffix Category { get; private set; }
+        public Suffix SubCategory { get; private set; }
+        public Suffix Unit { get; private set; }
+
         public double Price { get { return price; } 
             private set 
             {
@@ -61,7 +42,7 @@ namespace LogicLayerEntitiesLibrary.Products
         public bool InStock { get { return inStock; } private set { inStock = value; } }
         public List<Discount> Bonus { get; private set; }
 
-        public Product(string name, string category, string subCatgeory, string unit, double price, byte[]? image, bool inStock, DateTime? lastModified) 
+        public Product(string name, Suffix category, Suffix subCatgeory, Suffix unit, double price, byte[]? image, bool inStock, DateTime? lastModified) 
         {
             Name = name;
             LastModified = lastModified;
@@ -74,7 +55,7 @@ namespace LogicLayerEntitiesLibrary.Products
             Bonus = new List<Discount>();
         }
 
-        public Product(int id, string name, string category, string subCatgeory, string unit, double price, byte[]? image, bool inStock, DateTime? lastModified) 
+        public Product(int id, string name, Suffix category, Suffix subCatgeory, Suffix unit, double price, byte[]? image, bool inStock, DateTime? lastModified) 
         {
             Id = id;
             Name = name;

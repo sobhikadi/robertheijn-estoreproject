@@ -22,12 +22,12 @@ namespace DataAccessLibrary.Products
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "insert into Product (name, category, sub_category, unit, price, stock, image, last_modified) values (@name, @category, @sub_category, @unit, @price, @stock, @image, @last_modified); select SCOPE_IDENTITY();";
+                string sql = "insert into Product (name, category_id, sub_category_id, unit_id, price, stock, image, last_modified) values (@name, @category, @sub_category, @unit, @price, @stock, @image, @last_modified); select SCOPE_IDENTITY();";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@name", product.Name);
-                cmd.Parameters.AddWithValue("@category", product.Category);
-                cmd.Parameters.AddWithValue("@sub_Category", product.SubCategory);
-                cmd.Parameters.AddWithValue("@unit", product.Unit);
+                cmd.Parameters.AddWithValue("@category", product.Category.Id);
+                cmd.Parameters.AddWithValue("@sub_Category", product.SubCategory.Id);
+                cmd.Parameters.AddWithValue("@unit", product.Unit.Id);
                 cmd.Parameters.AddWithValue("@price", product.Price);
                 cmd.Parameters.AddWithValue("@stock", product.InStock);
                 cmd.Parameters.AddWithValue("@last_modified", DBNull.Value);
@@ -97,8 +97,11 @@ namespace DataAccessLibrary.Products
 
                 SqlDataReader dr = cmd.ExecuteReader();
 
+                
+
                 while (dr.Read())
                 {
+                    int productId = Convert.ToInt32(dr["id"]);
                     byte[]? image;
                     DateTime? lastModified;
 
@@ -107,7 +110,43 @@ namespace DataAccessLibrary.Products
                     if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
                     else lastModified = null;
 
-                    Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], (string)dr["category"], (string)dr["sub_category"], (string)dr["unit"], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
+
+                    List<Suffix> suffixes = new List<Suffix>();
+                    foreach (SuffixType type in Enum.GetValues(typeof(SuffixType))) 
+                    {
+                        using (SqlConnection conns = new SqlConnection(connectionString))
+                        {
+
+                            conns.Open();
+                            string sqls = "";
+
+                            if (type == SuffixType.category)
+                            {
+                                sqls = "select * from Category where id = @product_id;";
+                            }
+                            else if (type == SuffixType.sub_category)
+                            {
+                                sqls = "select * from SubCategory where id = @product_id;";
+                            }
+                            else if (type == SuffixType.unit)
+                            {
+                                sqls = "select * from Unit where id = @product_id;";
+                            }
+                            SqlCommand cmds = new SqlCommand(sqls, conns);
+
+                            cmds.Parameters.AddWithValue("@product_id", productId);
+
+                            SqlDataReader drs = cmds.ExecuteReader();
+
+                            while (drs.Read())
+                            {
+                                suffixes.Add(new(Convert.ToInt32(drs["id"]), (string)drs[$"{type}"], type));
+                            }
+                        }
+                    }
+
+
+                    Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], suffixes[0], suffixes[1], suffixes[2], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
 
                     products.Add(product);
                 }
@@ -123,20 +162,20 @@ namespace DataAccessLibrary.Products
             {
                 if (type == ProductSearchType.category)
                 {
-                    query = "select * from Product WHERE category = @term ORDER BY id;";
+                    query = "select * from ViewProductInfo WHERE category_id = @term ORDER BY id;";
                 }
                 else if (type == ProductSearchType.sub_category)
                 {
-                    query = "select * from Product WHERE sub_category = @term ORDER BY id;";
+                    query = "select * from ViewProductInfo WHERE sub_category_id = @term ORDER BY id;";
                 }
                 else
                 {
-                    query = $"select * from Product WHERE {type} LIKE '%{term}%' ORDER BY id;";
+                    query = $"select * from ViewProductInfo WHERE {type} LIKE '%{term}%' ORDER BY id;";
                 }
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                if(type == ProductSearchType.category || type ==ProductSearchType.sub_category) cmd.Parameters.AddWithValue("@term", term);
+                if(type == ProductSearchType.category || type ==ProductSearchType.sub_category) cmd.Parameters.AddWithValue("@term", Convert.ToInt16(term) + 1);
                 
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -144,6 +183,7 @@ namespace DataAccessLibrary.Products
                 {
                     while (dr.Read())
                     {
+                        int productId = Convert.ToInt32(dr["id"]);
                         byte[]? image;
                         DateTime? lastModified;
 
@@ -152,7 +192,42 @@ namespace DataAccessLibrary.Products
                         if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
                         else lastModified = null;
 
-                        Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], (string)dr["category"], (string)dr["sub_category"], (string)dr["unit"], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
+                        List<Suffix> suffixes = new List<Suffix>();
+                        foreach (SuffixType typeS in Enum.GetValues(typeof(SuffixType)))
+                        {
+                            using (SqlConnection conns = new SqlConnection(connectionString))
+                            {
+
+                                conn.Open();
+                                string sqls = "";
+
+                                if (typeS == SuffixType.category)
+                                {
+                                     sqls = "select * from Category where id = @product_id;";
+                                }
+                                else if (typeS == SuffixType.sub_category)
+                                {
+                                    sqls = "select * from SubCategory where id = @product_id;";
+                                }
+                                else if (typeS == SuffixType.unit)
+                                {
+                                    sqls = "select * from Unit where id = @product_id;";
+                                }
+                                SqlCommand cmds = new SqlCommand(sqls, conns);
+
+                                cmds.Parameters.AddWithValue("@product_id", productId);
+
+                                SqlDataReader drs = cmd.ExecuteReader();
+
+                                while (drs.Read())
+                                {
+                                    suffixes.Add(new(Convert.ToInt32(drs["id"]), (string)drs[$"{typeS}"], typeS));
+                                }
+                            }
+                        }
+
+
+                        Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], suffixes[0], suffixes[1], suffixes[2], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
                         products.Add(product);
                     }
                 }
@@ -164,7 +239,7 @@ namespace DataAccessLibrary.Products
             return products;
         }
 
-        public int InsertSuffix(Suffix suffix, ProductSuffix type) 
+        public int InsertSuffix(Suffix suffix) 
         {
             string sql = "";
             int id = 0;
@@ -172,27 +247,30 @@ namespace DataAccessLibrary.Products
             {
                 conn.Open();
 
-                if (type == ProductSuffix.category) 
+                if (suffix.SuffixType == SuffixType.category)
                 {
-                    sql = "insert into ProductCategory (category) values (@name); select SCOPE_IDENTITY();";
+                    sql = "insert into Category (category) values (@cat); select SCOPE_IDENTITY();";
                 }
-                else if (type == ProductSuffix.subcategory)
+                else if (suffix.SuffixType == SuffixType.sub_category)
                 {
-                    sql = "insert into ProductSubCategory (sub_category) values (@name); select SCOPE_IDENTITY();";
+                    sql = "insert into SubCategory (sub_category) values (@subCat); select SCOPE_IDENTITY();";
                 }
-                else
+                else if (suffix.SuffixType == SuffixType.unit)
                 {
-                    sql = "insert into ProductUnit (unit) values (@name); select SCOPE_IDENTITY();";
+                    sql = "insert into Unit (unit) values (@unit); select SCOPE_IDENTITY();";
                 }
+
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@name", suffix.Name);
+                cmd.Parameters.AddWithValue("@type", suffix.SuffixType.ToString());
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read()) id = Convert.ToInt32(dr[0]);
             }
             return id;
         }
 
-        public List<Suffix> GetSuffixes() 
+        public List<Suffix> GetAllSuffixes() 
         {
             List<Suffix> suffixes = new List<Suffix>();
 
@@ -200,44 +278,42 @@ namespace DataAccessLibrary.Products
             {
                 
                 conn.Open();
-                string sql = "select * from productCategory order by id;";
+                string sql = "select * from Category order by id;";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    suffixes.Add(new Category(Convert.ToInt32(dr["id"]), (string)dr["category"]));
+                    suffixes.Add(new (Convert.ToInt32(dr["id"]), (string)dr["category"], SuffixType.category));
                 }
             }
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
 
                 conn.Open();
-                string sql = "select * from productSubCategory order by id;";
+                string sql = "select * from SubCategory order by id;";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    suffixes.Add(new SubCategory(Convert.ToInt32(dr["id"]), (string)dr["sub_category"]));
+                    suffixes.Add(new(Convert.ToInt32(dr["id"]), (string)dr["sub_category"], SuffixType.sub_category));
                 }
             }
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
 
                 conn.Open();
-                string sql = "select * from productUnit order by id;";
+                string sql = "select * from Unit order by id;";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    suffixes.Add(new Unit(Convert.ToInt32(dr["id"]), (string)dr["unit"]));
+                    suffixes.Add(new(Convert.ToInt32(dr["id"]), (string)dr["unit"], SuffixType.unit));
                 }
             }
             return suffixes;

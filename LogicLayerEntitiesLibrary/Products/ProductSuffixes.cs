@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicLayerEntitiesLibrary.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,63 +7,41 @@ using System.Threading.Tasks;
 
 namespace LogicLayerEntitiesLibrary.Products
 {
-    public abstract class Suffix 
+    public class Suffix 
     {
+        private string name;
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get { return name; } private set 
+            {
+                if (string.IsNullOrEmpty(value)) throw new NullValueException("The field suffix cannot be empty");
+                if (value.Length < 3 || value.Length > 30) throw new OutOfrangeException("suffix must have at least 3 charachters and maximum of 30 charachters");
+                name = value;
+            } }
+        public SuffixType SuffixType { get; private set; }
 
-        public Suffix(string name)
+        public Suffix(string name, SuffixType type)
         {
             Name = name;
+            SuffixType = type;
         }
-        public Suffix(int id, string name)
+        public Suffix(int id, string name, SuffixType type)
         {
             Id = id;
             Name = name;
+            SuffixType = type;
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 
 
-
-    public class Category : Suffix
-    {
-        public Category(string name) : base(name)
-        {
-        }
-        public Category(int id, string name) : base(id, name)
-        {
-        }
-    }
-
-    public class SubCategory : Suffix
-    {
-
-        public SubCategory(string name) : base(name)
-        {
-           
-        }
-        public SubCategory(int id, string name) : base(id, name)
-        {
-        
-        }
-    }
-
-    public class Unit : Suffix
-    {
-        public Unit(string name) : base(name)
-        {
-
-        }
-        public Unit(int id, string name) : base(id, name)
-        {
- 
-        }
-    }
-
-    public enum ProductSuffix 
+    public enum SuffixType 
     {
         category,
-        subcategory,
+        sub_category,
         unit
     }
 }

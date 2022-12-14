@@ -31,22 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProduct));
             this.lblStock = new System.Windows.Forms.Label();
             this.cboxStock = new System.Windows.Forms.ComboBox();
-            this.tbCategory = new System.Windows.Forms.TextBox();
             this.btnDeleteImage = new System.Windows.Forms.Button();
             this.lblImage = new System.Windows.Forms.Label();
             this.btnSelectImage = new System.Windows.Forms.Button();
             this.pboxImage = new System.Windows.Forms.PictureBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.tbsubCaregory = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblProductCategory = new System.Windows.Forms.Label();
             this.tbProductPrice = new System.Windows.Forms.TextBox();
             this.lblProductPrice = new System.Windows.Forms.Label();
-            this.tbProductUnit = new System.Windows.Forms.TextBox();
             this.lblUnit = new System.Windows.Forms.Label();
             this.tbProductName = new System.Windows.Forms.TextBox();
             this.lblProductName = new System.Windows.Forms.Label();
             this.ofdImage = new System.Windows.Forms.OpenFileDialog();
+            this.cboxCategories = new System.Windows.Forms.ComboBox();
+            this.cboxSubCategories = new System.Windows.Forms.ComboBox();
+            this.cboxUnits = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,16 +74,6 @@
             this.cboxStock.Name = "cboxStock";
             this.cboxStock.Size = new System.Drawing.Size(587, 28);
             this.cboxStock.TabIndex = 5;
-            // 
-            // tbCategory
-            // 
-            this.tbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCategory.Location = new System.Drawing.Point(171, 67);
-            this.tbCategory.MaximumSize = new System.Drawing.Size(731, 32);
-            this.tbCategory.Name = "tbCategory";
-            this.tbCategory.Size = new System.Drawing.Size(587, 27);
-            this.tbCategory.TabIndex = 1;
             // 
             // btnDeleteImage
             // 
@@ -157,16 +147,6 @@
             this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
-            // tbsubCaregory
-            // 
-            this.tbsubCaregory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbsubCaregory.Location = new System.Drawing.Point(171, 108);
-            this.tbsubCaregory.MaximumSize = new System.Drawing.Size(731, 32);
-            this.tbsubCaregory.Name = "tbsubCaregory";
-            this.tbsubCaregory.Size = new System.Drawing.Size(587, 27);
-            this.tbsubCaregory.TabIndex = 2;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -207,16 +187,6 @@
             this.lblProductPrice.TabIndex = 71;
             this.lblProductPrice.Text = "Price";
             // 
-            // tbProductUnit
-            // 
-            this.tbProductUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbProductUnit.Location = new System.Drawing.Point(171, 151);
-            this.tbProductUnit.MaximumSize = new System.Drawing.Size(731, 32);
-            this.tbProductUnit.Name = "tbProductUnit";
-            this.tbProductUnit.Size = new System.Drawing.Size(587, 27);
-            this.tbProductUnit.TabIndex = 3;
-            // 
             // lblUnit
             // 
             this.lblUnit.AutoSize = true;
@@ -251,25 +221,61 @@
             // 
             this.ofdImage.FileName = "openFileDialog1";
             // 
+            // cboxCategories
+            // 
+            this.cboxCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxCategories.FormattingEnabled = true;
+            this.cboxCategories.Location = new System.Drawing.Point(171, 67);
+            this.cboxCategories.MaximumSize = new System.Drawing.Size(731, 0);
+            this.cboxCategories.Name = "cboxCategories";
+            this.cboxCategories.Size = new System.Drawing.Size(587, 28);
+            this.cboxCategories.TabIndex = 81;
+            // 
+            // cboxSubCategories
+            // 
+            this.cboxSubCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxSubCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxSubCategories.FormattingEnabled = true;
+            this.cboxSubCategories.Location = new System.Drawing.Point(171, 108);
+            this.cboxSubCategories.MaximumSize = new System.Drawing.Size(731, 0);
+            this.cboxSubCategories.Name = "cboxSubCategories";
+            this.cboxSubCategories.Size = new System.Drawing.Size(587, 28);
+            this.cboxSubCategories.TabIndex = 82;
+            // 
+            // cboxUnits
+            // 
+            this.cboxUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxUnits.FormattingEnabled = true;
+            this.cboxUnits.Location = new System.Drawing.Point(171, 151);
+            this.cboxUnits.MaximumSize = new System.Drawing.Size(731, 0);
+            this.cboxUnits.Name = "cboxUnits";
+            this.cboxUnits.Size = new System.Drawing.Size(587, 28);
+            this.cboxUnits.TabIndex = 83;
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 523);
+            this.Controls.Add(this.cboxUnits);
+            this.Controls.Add(this.cboxSubCategories);
+            this.Controls.Add(this.cboxCategories);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.cboxStock);
-            this.Controls.Add(this.tbCategory);
             this.Controls.Add(this.btnDeleteImage);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.btnSelectImage);
             this.Controls.Add(this.pboxImage);
             this.Controls.Add(this.btnAddProduct);
-            this.Controls.Add(this.tbsubCaregory);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblProductCategory);
             this.Controls.Add(this.tbProductPrice);
             this.Controls.Add(this.lblProductPrice);
-            this.Controls.Add(this.tbProductUnit);
             this.Controls.Add(this.lblUnit);
             this.Controls.Add(this.tbProductName);
             this.Controls.Add(this.lblProductName);
@@ -277,6 +283,7 @@
             this.Name = "AddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProduct";
+            this.Load += new System.EventHandler(this.AddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -287,21 +294,21 @@
 
         private Label lblStock;
         private ComboBox cboxStock;
-        private TextBox tbCategory;
         private Button btnDeleteImage;
         private Label lblImage;
         private Button btnSelectImage;
         private PictureBox pboxImage;
         private Button btnAddProduct;
-        private TextBox tbsubCaregory;
         private Label label4;
         private Label lblProductCategory;
         private TextBox tbProductPrice;
         private Label lblProductPrice;
-        private TextBox tbProductUnit;
         private Label lblUnit;
         private TextBox tbProductName;
         private Label lblProductName;
         private OpenFileDialog ofdImage;
+        private ComboBox cboxCategories;
+        private ComboBox cboxSubCategories;
+        private ComboBox cboxUnits;
     }
 }

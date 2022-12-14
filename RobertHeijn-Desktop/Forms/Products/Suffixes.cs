@@ -24,29 +24,23 @@ namespace DesktopApplication.Forms.Products
         private void Suffixes_Load(object sender, EventArgs e)
         {
             cboxSuffixType.DataSource = null;
-            cboxSuffixType.DataSource = Enum.GetValues(typeof(ProductSuffix));
+            cboxUpdateSuffixType.DataSource = null;
+            cboxSuffixType.DataSource = Enum.GetValues(typeof(SuffixType));
+            cboxUpdateSuffixType.DataSource = Enum.GetValues(typeof(SuffixType));
 
             LoadDataToListBoxes();
         }
 
         private void LoadDataToListBoxes() 
         {
-            lboxCategories.Items.Clear();
-            lboxSubCategories.Items.Clear();
-            lboxUnits.Items.Clear();
-
-            foreach (Suffix suff in suffixesHandler.Suffixes) 
-            {
-                if (suff is Category) lboxCategories.Items.Add(suff);
-                else if (suff is SubCategory) lboxSubCategories.Items.Add(suff);
-                else lboxUnits.Items.Add(suff);
-            }
+            lboxSuffixes.DataSource = null;
+            lboxSuffixes.DataSource = suffixesHandler.Suffixes;
         }
 
         private void btnAddSuffix_Click(object sender, EventArgs e)
         {
-            Suffix suffix = new Category(textBox1.Text);
-            suffixesHandler.AddSuffix(suffix, (ProductSuffix)cboxSuffixType.SelectedItem);
+            Suffix suffix = new Suffix(tbSuffixText.Text, (SuffixType)cboxSuffixType.SelectedItem);
+            suffixesHandler.AddSuffix(suffix);
         }
     }
 }

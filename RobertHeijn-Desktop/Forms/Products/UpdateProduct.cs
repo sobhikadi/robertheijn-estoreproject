@@ -16,22 +16,36 @@ namespace DesktopApplication.Forms.Products
 {
     public partial class UpdateProduct : Form
     {
-        ProductHandlers productHandler;
+        private ProductHandlers productHandler;
+        private SuffixesHandler suffixesHandler;
         Product currentProduct;
 
-        public UpdateProduct(ProductHandlers productHandler, Product currentProduct)
+        public UpdateProduct(ProductHandlers productHandler, Product currentProduct, SuffixesHandler suffixesHandler)
         {
             InitializeComponent();
             this.productHandler = productHandler;
             this.currentProduct = currentProduct;
+            this.suffixesHandler = suffixesHandler;
         }
 
         private void UpdateProduct_Load(object sender, EventArgs e)
         {
+            cboxCategories.Items.Clear();
+            cboxSubCategories.Items.Clear();
+            cboxUnits.Items.Clear();
+
+            foreach (Suffix suffix in suffixesHandler.Suffixes)
+            {
+                if (suffix.SuffixType is SuffixType.category) cboxCategories.Items.Add(suffix.Name);
+                else if (suffix.SuffixType is SuffixType.sub_category) cboxSubCategories.Items.Add(suffix.Name);
+                else cboxUnits.Items.Add(suffix.Name);
+
+            }
+
             tbProductName.Text = currentProduct.Name;
-            tbCategory.Text = currentProduct.Category;
-            tbsubCaregory.Text = currentProduct.SubCategory;
-            tbProductUnit.Text = currentProduct.Unit;
+            cboxCategories.SelectedItem = currentProduct.Category;
+            cboxSubCategories.SelectedItem = currentProduct.SubCategory;
+            cboxUnits.SelectedItem = currentProduct.Unit;
             tbProductPrice.Text = currentProduct.Price.ToString();
             if(currentProduct.InStock) cboxStock.SelectedIndex = 0;
             else cboxStock.SelectedIndex = 1;
@@ -86,7 +100,7 @@ namespace DesktopApplication.Forms.Products
             DialogResult dr = MessageBox.Show("Are You sure you want to Update this Product?", "Update Product?", MessageBoxButtons.OKCancel);
             if (dr == DialogResult.OK)
             {
-                string name, category, subCategory, unit;
+                string name;
                 bool stock;
                 double price;
                 byte[]? image;
@@ -98,9 +112,9 @@ namespace DesktopApplication.Forms.Products
                     if (string.IsNullOrEmpty(tbProductPrice.Text)) { throw new NullValueException("Please enter a price"); }
 
                     name = tbProductName.Text;
-                    category = tbCategory.Text;
-                    subCategory = tbsubCaregory.Text;
-                    unit = tbProductUnit.Text;
+                    Suffix category = (Suffix)cboxCategories.SelectedItem;
+                    Suffix subCategory = (Suffix)cboxSubCategories.SelectedItem;
+                    Suffix unit = (Suffix)cboxUnits.SelectedItem;
                     if (!double.TryParse(tbProductPrice.Text, out price)) { throw new ArgumentException("The price field cannot include letters"); }
                     if (pboxImage.Image != null) image = AddProduct.ConvertImageToByteArray(pboxImage.Image);
                     else image = null;

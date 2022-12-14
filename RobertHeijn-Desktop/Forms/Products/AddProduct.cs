@@ -17,11 +17,27 @@ namespace DesktopApplication.Forms.Products
     public partial class AddProduct : Form
     {
         private ProductHandlers productHandler;
+        private SuffixesHandler suffixesHandler;
 
-        public AddProduct(ProductHandlers productHandler)
+        public AddProduct(ProductHandlers productHandler, SuffixesHandler suffixesHandler)
         {
             InitializeComponent();
             this.productHandler = productHandler;
+            this.suffixesHandler = suffixesHandler;
+        }
+
+        private void AddProduct_Load(object sender, EventArgs e)
+        {
+            cboxCategories.Items.Clear();
+            cboxSubCategories.Items.Clear();
+            cboxUnits.Items.Clear();
+
+            foreach (Suffix suffix in suffixesHandler.Suffixes) 
+            {
+                if (suffix.SuffixType is SuffixType.category) cboxCategories.Items.Add(suffix);
+                else if (suffix.SuffixType is SuffixType.sub_category) cboxSubCategories.Items.Add(suffix);
+                else cboxUnits.Items.Add(suffix);
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -29,7 +45,7 @@ namespace DesktopApplication.Forms.Products
             DialogResult dr = MessageBox.Show("Are You sure you want to add this Product?", "Add Product?", MessageBoxButtons.OKCancel);
             if (dr == DialogResult.OK)
             {
-                string name, category, subCategory, unit;
+                string name;
                 bool stock;
                 double price;
                 byte[]? image;
@@ -39,9 +55,9 @@ namespace DesktopApplication.Forms.Products
                     if (string.IsNullOrEmpty(tbProductPrice.Text)) { throw new NullValueException("Please enter a price"); }
 
                     name = tbProductName.Text;
-                    category = tbCategory.Text;
-                    subCategory = tbsubCaregory.Text;
-                    unit = tbProductUnit.Text;
+                    Suffix category = (Suffix)cboxCategories.SelectedItem;
+                    Suffix subCategory = (Suffix)cboxSubCategories.SelectedItem;
+                    Suffix unit = (Suffix)cboxUnits.SelectedItem;
                     if (!double.TryParse(tbProductPrice.Text, out price)) { throw new ArgumentException("The price field cannot include letters"); }
                     if (pboxImage.Image != null) image = ConvertImageToByteArray(pboxImage.Image);
                     else image = null;
@@ -91,5 +107,7 @@ namespace DesktopApplication.Forms.Products
                 return ms.ToArray();
             }
         }
+
+        
     }
 }

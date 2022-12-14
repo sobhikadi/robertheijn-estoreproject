@@ -17,15 +17,15 @@ namespace LogicLayerHandlersLibrary
         public SuffixesHandler(IDBMediatorProducts dBMediatorProduct)
         {
             this.dbHandlerProducts = dBMediatorProduct;
-            suffixes = dbHandlerProducts.GetSuffixes();
+            suffixes = dbHandlerProducts.GetAllSuffixes();
         }
 
         public IList<Suffix> Suffixes { get { return suffixes.AsReadOnly(); } }
 
-        public void AddSuffix(Suffix suffix, ProductSuffix type) 
+        public void AddSuffix(Suffix suffix) 
         {
-            if (CheckIfSuffixExist(suffix.Name)) throw new ArgumentException($"Suffix with the name {suffix.Name} and type {type} already exist");
-            int id = dbHandlerProducts.InsertSuffix(suffix, type);
+            if (CheckIfSuffixExist(suffix.Name)) throw new ArgumentException($"Suffix with the name {suffix.Name} and type {suffix.SuffixType} already exist");
+            int id = dbHandlerProducts.InsertSuffix(suffix);
             if (id == 0) throw new Exception("Suffix has not been added successfully");
             suffix.Id = id;
             suffixes.Add(suffix);

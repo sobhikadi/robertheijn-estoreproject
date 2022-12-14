@@ -19,7 +19,7 @@ namespace DataAccessLibrary.Products
             throw new NotImplementedException();
         }
 
-        public List<Suffix> GetSuffixes()
+        public List<Suffix> GetAllSuffixes()
         {
             throw new NotImplementedException();
         }
@@ -29,7 +29,7 @@ namespace DataAccessLibrary.Products
             throw new NotImplementedException();
         }
 
-        public int InsertSuffix(Suffix suffix, ProductSuffix type)
+        public int InsertSuffix(Suffix suffix)
         {
             throw new NotImplementedException();
         }
