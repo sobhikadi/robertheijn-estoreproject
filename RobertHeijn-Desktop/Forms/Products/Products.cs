@@ -262,5 +262,13 @@ namespace DesktopApplication.Forms.Products
         {
             suffixesFormOpen = false;
         }
+
+        private void tbSearchTerm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearchProduct.PerformClick();
+            }
+        }
     }
 }

@@ -163,6 +163,7 @@
             this.tbSearchTerm.Name = "tbSearchTerm";
             this.tbSearchTerm.Size = new System.Drawing.Size(783, 30);
             this.tbSearchTerm.TabIndex = 1;
+            this.tbSearchTerm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearchTerm_KeyPress);
             // 
             // lblSearchTerm
             // 

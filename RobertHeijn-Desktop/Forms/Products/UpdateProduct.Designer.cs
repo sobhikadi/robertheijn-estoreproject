@@ -249,6 +249,7 @@
             this.cboxUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboxUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxUnits.Enabled = false;
             this.cboxUnits.FormattingEnabled = true;
             this.cboxUnits.Location = new System.Drawing.Point(171, 145);
             this.cboxUnits.MaximumSize = new System.Drawing.Size(731, 0);
@@ -261,6 +262,7 @@
             this.cboxSubCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboxSubCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxSubCategories.Enabled = false;
             this.cboxSubCategories.FormattingEnabled = true;
             this.cboxSubCategories.Location = new System.Drawing.Point(171, 102);
             this.cboxSubCategories.MaximumSize = new System.Drawing.Size(731, 0);
@@ -273,6 +275,7 @@
             this.cboxCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxCategories.Enabled = false;
             this.cboxCategories.FormattingEnabled = true;
             this.cboxCategories.Location = new System.Drawing.Point(171, 61);
             this.cboxCategories.MaximumSize = new System.Drawing.Size(731, 0);

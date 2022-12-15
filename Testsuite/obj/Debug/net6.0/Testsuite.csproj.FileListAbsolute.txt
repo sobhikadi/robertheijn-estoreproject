@@ -23,6 +23,7 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\NuGet.Frameworks.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\System.Data.SqlClient.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -88,6 +89,11 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\DataAccessLibrary.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\LogicLayerEntitiesLibrary.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\LogicLayerHandlersLibrary.dll
@@ -105,9 +111,3 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\Testsuite.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\Testsuite.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\obj\Debug\net6.0\ref\Testsuite.dll
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\System.Data.SqlClient.dll
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\Testsuite\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

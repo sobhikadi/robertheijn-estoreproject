@@ -48,13 +48,13 @@ namespace DataAccessLibrary.Products
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "Update Product set name = @name, category = @category, sub_category = @sub_category, unit = @unit, price = @price, stock = @stock, Image = @image, last_modified = @lastModified where product.id = @productId";
+                string sql = "Update Product set name = @name, category_id = @category, sub_category_id = @sub_category, unit_id = @unit, price = @price, stock = @stock, Image = @image, last_modified = @lastModified where product.id = @productId";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@productId", currentProduct.Id);
                 cmd.Parameters.AddWithValue("@name", newProduct.Name);
-                cmd.Parameters.AddWithValue("@category", newProduct.Category);
-                cmd.Parameters.AddWithValue("@sub_Category", newProduct.SubCategory);
-                cmd.Parameters.AddWithValue("@unit", newProduct.Unit);
+                cmd.Parameters.AddWithValue("@category", newProduct.Category.Id);
+                cmd.Parameters.AddWithValue("@sub_Category", newProduct.SubCategory.Id);
+                cmd.Parameters.AddWithValue("@unit", newProduct.Unit.Id);
                 cmd.Parameters.AddWithValue("@price", newProduct.Price);
                 cmd.Parameters.AddWithValue("@stock", newProduct.InStock);
                 cmd.Parameters.AddWithValue("@lastModified", newProduct.LastModified);
@@ -198,7 +198,7 @@ namespace DataAccessLibrary.Products
                             using (SqlConnection conns = new SqlConnection(connectionString))
                             {
 
-                                conn.Open();
+                                conns.Open();
                                 string sqls = "";
 
                                 if (typeS == SuffixType.category)
@@ -217,7 +217,7 @@ namespace DataAccessLibrary.Products
 
                                 cmds.Parameters.AddWithValue("@product_id", productId);
 
-                                SqlDataReader drs = cmd.ExecuteReader();
+                                SqlDataReader drs = cmds.ExecuteReader();
 
                                 while (drs.Read())
                                 {
@@ -249,20 +249,19 @@ namespace DataAccessLibrary.Products
 
                 if (suffix.SuffixType == SuffixType.category)
                 {
-                    sql = "insert into Category (category) values (@cat); select SCOPE_IDENTITY();";
+                    sql = "insert into Category (category) values (@text); select SCOPE_IDENTITY();";
                 }
                 else if (suffix.SuffixType == SuffixType.sub_category)
                 {
-                    sql = "insert into SubCategory (sub_category) values (@subCat); select SCOPE_IDENTITY();";
+                    sql = "insert into SubCategory (sub_category) values (@text); select SCOPE_IDENTITY();";
                 }
                 else if (suffix.SuffixType == SuffixType.unit)
                 {
-                    sql = "insert into Unit (unit) values (@unit); select SCOPE_IDENTITY();";
+                    sql = "insert into Unit (unit) values (@text); select SCOPE_IDENTITY();";
                 }
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@name", suffix.Name);
-                cmd.Parameters.AddWithValue("@type", suffix.SuffixType.ToString());
+                cmd.Parameters.AddWithValue("@text", suffix.Name);
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read()) id = Convert.ToInt32(dr[0]);

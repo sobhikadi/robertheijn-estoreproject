@@ -36,16 +36,16 @@ namespace DesktopApplication.Forms.Products
 
             foreach (Suffix suffix in suffixesHandler.Suffixes)
             {
-                if (suffix.SuffixType is SuffixType.category) cboxCategories.Items.Add(suffix.Name);
-                else if (suffix.SuffixType is SuffixType.sub_category) cboxSubCategories.Items.Add(suffix.Name);
-                else cboxUnits.Items.Add(suffix.Name);
+                if (suffix.SuffixType is SuffixType.category) cboxCategories.Items.Add(suffix);
+                else if (suffix.SuffixType is SuffixType.sub_category) cboxSubCategories.Items.Add(suffix);
+                else cboxUnits.Items.Add(suffix);
 
             }
 
             tbProductName.Text = currentProduct.Name;
-            cboxCategories.SelectedItem = currentProduct.Category;
-            cboxSubCategories.SelectedItem = currentProduct.SubCategory;
-            cboxUnits.SelectedItem = currentProduct.Unit;
+            cboxCategories.SelectedIndex = currentProduct.Category.Id - 1;
+            cboxSubCategories.SelectedIndex = currentProduct.SubCategory.Id - 1;
+            cboxUnits.SelectedIndex = currentProduct.Unit.Id - 1;
             tbProductPrice.Text = currentProduct.Price.ToString();
             if(currentProduct.InStock) cboxStock.SelectedIndex = 0;
             else cboxStock.SelectedIndex = 1;
