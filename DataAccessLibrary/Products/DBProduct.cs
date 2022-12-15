@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LogicLayerEntitiesLibrary.Products;
 using LogicLayerEntitiesLibrary.Exceptions;
+using System.Xml.Linq;
 
 namespace DataAccessLibrary.Products
 {
@@ -175,6 +176,7 @@ namespace DataAccessLibrary.Products
 
         public int InsertSuffix(Suffix suffix) 
         {
+            if(CheckIfSuffixExist(suffix.Name)) throw new ArgumentException("Suffix already exists in the database");
             string sql = "";
             int id = 0;
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -263,6 +265,24 @@ namespace DataAccessLibrary.Products
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("@name", name);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read()) exist = true;
+            }
+            return exist;
+        }
+
+        private bool CheckIfSuffixExist(string name)
+        {
+            bool exist = false;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "select id from ViewSuffixes where suffix=@suffix";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@suffix", name);
 
                 SqlDataReader dr = cmd.ExecuteReader();
 

@@ -35,7 +35,6 @@
             this.lblSuffixType = new System.Windows.Forms.Label();
             this.tbSuffixText = new System.Windows.Forms.TextBox();
             this.lblSuffixText = new System.Windows.Forms.Label();
-            this.lboxSuffixes = new System.Windows.Forms.ListBox();
             this.lblSuffixes = new System.Windows.Forms.Label();
             this.gboxUpdateSuffix = new System.Windows.Forms.GroupBox();
             this.btnUpdateSuffix = new System.Windows.Forms.Button();
@@ -43,6 +42,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbUpdateSuffixType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.listViewSuffixes = new System.Windows.Forms.ListView();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.gboxAddSuffix.SuspendLayout();
             this.gboxUpdateSuffix.SuspendLayout();
             this.SuspendLayout();
@@ -113,15 +115,6 @@
             this.lblSuffixText.Size = new System.Drawing.Size(85, 23);
             this.lblSuffixText.TabIndex = 0;
             this.lblSuffixText.Text = "Suffix text";
-            // 
-            // lboxSuffixes
-            // 
-            this.lboxSuffixes.FormattingEnabled = true;
-            this.lboxSuffixes.ItemHeight = 23;
-            this.lboxSuffixes.Location = new System.Drawing.Point(465, 42);
-            this.lboxSuffixes.Name = "lboxSuffixes";
-            this.lboxSuffixes.Size = new System.Drawing.Size(474, 418);
-            this.lboxSuffixes.TabIndex = 1;
             // 
             // lblSuffixes
             // 
@@ -199,14 +192,40 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Suffix text";
             // 
+            // listViewSuffixes
+            // 
+            this.listViewSuffixes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listViewSuffixes.FullRowSelect = true;
+            this.listViewSuffixes.GridLines = true;
+            this.listViewSuffixes.Location = new System.Drawing.Point(465, 42);
+            this.listViewSuffixes.Name = "listViewSuffixes";
+            this.listViewSuffixes.Size = new System.Drawing.Size(474, 418);
+            this.listViewSuffixes.TabIndex = 50;
+            this.listViewSuffixes.UseCompatibleStateImageBehavior = false;
+            this.listViewSuffixes.View = System.Windows.Forms.View.Details;
+            this.listViewSuffixes.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewSuffixes_ItemSelectionChanged);
+            this.listViewSuffixes.SelectedIndexChanged += new System.EventHandler(this.listViewSuffixes_SelectedIndexChanged);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "suffix text";
+            this.columnHeader2.Width = 300;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "type";
+            this.columnHeader3.Width = 170;
+            // 
             // Suffixes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 474);
+            this.Controls.Add(this.listViewSuffixes);
             this.Controls.Add(this.gboxUpdateSuffix);
             this.Controls.Add(this.lblSuffixes);
-            this.Controls.Add(this.lboxSuffixes);
             this.Controls.Add(this.gboxAddSuffix);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -231,7 +250,6 @@
         private TextBox tbSuffixText;
         private Label lblSuffixText;
         private Button btnAddSuffix;
-        private ListBox lboxSuffixes;
         private Label lblSuffixes;
         private GroupBox gboxUpdateSuffix;
         private Button btnUpdateSuffix;
@@ -239,5 +257,8 @@
         private Label label1;
         private TextBox tbUpdateSuffixType;
         private Label label2;
+        private ListView listViewSuffixes;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
     }
 }
