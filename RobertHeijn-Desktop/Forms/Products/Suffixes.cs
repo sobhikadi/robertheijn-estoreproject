@@ -33,12 +33,7 @@ namespace DesktopApplication.Forms.Products
             cboxSuffixType.SelectedIndex = -1;
             cboxUpdateSuffixType.SelectedIndex = -1;
 
-            listViewSuffixes.Items.Clear();
-            foreach (Suffix suff in suffixesHandler.Suffixes) 
-            {
-                AddProductToListView(suff);
-            }
-          
+            LoadSuffixes();
         }
 
         
@@ -57,11 +52,7 @@ namespace DesktopApplication.Forms.Products
                 tbSuffixText.Clear();
                 cboxSuffixType.SelectedIndex = -1;
 
-                listViewSuffixes.Items.Clear();
-                foreach (Suffix suff in suffixesHandler.Suffixes)
-                {
-                    AddProductToListView(suff);
-                }
+                LoadSuffixes();
 
             }
             catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
@@ -97,6 +88,37 @@ namespace DesktopApplication.Forms.Products
             item.SubItems.Add(suffix.SuffixType.ToString());
 
             listViewSuffixes.Items.Add(item);
+        }
+
+        private void btnUpdateSuffix_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboxSuffixType.SelectedIndex < 0) throw new ArgumentException("Please select a type first");
+
+                Suffix newSuffix = new Suffix(tbSuffixText.Text, (SuffixType)cboxSuffixType.SelectedItem);
+                suffixesHandler.UpdateSuffix(selectedSuffix, newSuffix);
+
+                MessageBox.Show("Suffix Updated successfully");
+
+                selectedSuffix = null;
+                tbSuffixText.Clear();
+                cboxSuffixType.SelectedIndex = -1;
+
+                LoadSuffixes();
+
+            }
+            catch (SqlException) { MessageBox.Show("Unable to communicate with the database"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void LoadSuffixes() 
+        {
+            listViewSuffixes.Items.Clear();
+            foreach (Suffix suff in suffixesHandler.Suffixes)
+            {
+                AddProductToListView(suff);
+            }
         }
     }
 }

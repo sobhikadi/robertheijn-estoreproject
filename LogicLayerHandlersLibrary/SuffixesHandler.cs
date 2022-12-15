@@ -31,7 +31,7 @@ namespace LogicLayerHandlersLibrary
             suffixes.Add(suffix);
         }
 
-        public void UpdateSuffix () 
+        public void UpdateSuffix (Suffix currentSuffix, Suffix newSuffix) 
         {
 
         }

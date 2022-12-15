@@ -145,6 +145,7 @@
             // 
             this.btnUpdateSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateSuffix.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(91)))), ((int)(((byte)(246)))));
+            this.btnUpdateSuffix.Enabled = false;
             this.btnUpdateSuffix.FlatAppearance.BorderSize = 0;
             this.btnUpdateSuffix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateSuffix.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -155,6 +156,7 @@
             this.btnUpdateSuffix.TabIndex = 48;
             this.btnUpdateSuffix.Text = "Update";
             this.btnUpdateSuffix.UseVisualStyleBackColor = false;
+            this.btnUpdateSuffix.Click += new System.EventHandler(this.btnUpdateSuffix_Click);
             // 
             // cboxUpdateSuffixType
             // 
