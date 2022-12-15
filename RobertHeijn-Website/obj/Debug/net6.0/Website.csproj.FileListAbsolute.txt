@@ -39,3 +39,8 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\ref\Website.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.Website.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.build.Website.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Website.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Website.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets.pack.json

@@ -110,41 +110,7 @@ namespace DataAccessLibrary.Products
                     if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
                     else lastModified = null;
 
-
-                    List<Suffix> suffixes = new List<Suffix>();
-                    foreach (SuffixType type in Enum.GetValues(typeof(SuffixType))) 
-                    {
-                        using (SqlConnection conns = new SqlConnection(connectionString))
-                        {
-
-                            conns.Open();
-                            string sqls = "";
-
-                            if (type == SuffixType.category)
-                            {
-                                sqls = "select * from Category where id = @product_id;";
-                            }
-                            else if (type == SuffixType.sub_category)
-                            {
-                                sqls = "select * from SubCategory where id = @product_id;";
-                            }
-                            else if (type == SuffixType.unit)
-                            {
-                                sqls = "select * from Unit where id = @product_id;";
-                            }
-                            SqlCommand cmds = new SqlCommand(sqls, conns);
-
-                            cmds.Parameters.AddWithValue("@product_id", productId);
-
-                            SqlDataReader drs = cmds.ExecuteReader();
-
-                            while (drs.Read())
-                            {
-                                suffixes.Add(new(Convert.ToInt32(drs["id"]), (string)drs[$"{type}"], type));
-                            }
-                        }
-                    }
-
+                    List<Suffix> suffixes = GetProductSuffixes((int)dr["category_id"], (int)dr["sub_category_id"], (int)dr["unit_id"]);
 
                     Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], suffixes[0], suffixes[1], suffixes[2], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
 
@@ -192,39 +158,7 @@ namespace DataAccessLibrary.Products
                         if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
                         else lastModified = null;
 
-                        List<Suffix> suffixes = new List<Suffix>();
-                        foreach (SuffixType typeS in Enum.GetValues(typeof(SuffixType)))
-                        {
-                            using (SqlConnection conns = new SqlConnection(connectionString))
-                            {
-
-                                conns.Open();
-                                string sqls = "";
-
-                                if (typeS == SuffixType.category)
-                                {
-                                     sqls = "select * from Category where id = @product_id;";
-                                }
-                                else if (typeS == SuffixType.sub_category)
-                                {
-                                    sqls = "select * from SubCategory where id = @product_id;";
-                                }
-                                else if (typeS == SuffixType.unit)
-                                {
-                                    sqls = "select * from Unit where id = @product_id;";
-                                }
-                                SqlCommand cmds = new SqlCommand(sqls, conns);
-
-                                cmds.Parameters.AddWithValue("@product_id", productId);
-
-                                SqlDataReader drs = cmds.ExecuteReader();
-
-                                while (drs.Read())
-                                {
-                                    suffixes.Add(new(Convert.ToInt32(drs["id"]), (string)drs[$"{typeS}"], typeS));
-                                }
-                            }
-                        }
+                        List<Suffix> suffixes = GetProductSuffixes((int)dr["category_id"], (int)dr["sub_category_id"], (int)dr["unit_id"]);
 
 
                         Product product = new Product(Convert.ToInt32(dr["id"]), (string)dr["name"], suffixes[0], suffixes[1], suffixes[2], Convert.ToDouble(dr["price"]), image, (bool)dr["stock"], lastModified);
@@ -357,6 +291,42 @@ namespace DataAccessLibrary.Products
                 }
             }
             return notModified;
+        }
+
+        private List<Suffix> GetProductSuffixes(int cat, int subCat, int unit) 
+        {
+            List<Suffix> listSuffix = new List<Suffix>();
+            foreach (SuffixType type in Enum.GetValues(typeof(SuffixType)))
+            {
+                using (SqlConnection conns = new SqlConnection(connectionString))
+                {
+
+                    conns.Open();
+                    string sqls = "";
+
+                    if (type == SuffixType.category)
+                    {
+                        sqls = $"select * from Category where id = {cat};";
+                    }
+                    else if (type == SuffixType.sub_category)
+                    {
+                        sqls = $"select * from SubCategory where id = {subCat};";
+                    }
+                    else if (type == SuffixType.unit)
+                    {
+                        sqls = $"select * from Unit where id = {unit};";
+                    }
+                    SqlCommand cmds = new SqlCommand(sqls, conns);
+
+                    SqlDataReader drs = cmds.ExecuteReader();
+
+                    while (drs.Read())
+                    {
+                        listSuffix.Add(new(Convert.ToInt32(drs["id"]), (string)drs[$"{type}"], type));
+                    }
+                }
+            }
+            return listSuffix;
         }
 
     }
