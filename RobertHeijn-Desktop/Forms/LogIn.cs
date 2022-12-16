@@ -1,3 +1,4 @@
+using DataAccessLibrary.Employees;
 using DesktopApplication.Forms;
 using LogicLayerEntitiesLibrary.Users;
 using LogicLayerHandlersLibrary;
@@ -31,27 +32,27 @@ public partial class LogIn : Form
     private void btnLogIn_Click(object sender, EventArgs e)
     {
        
-        Main fMain;
+        Main main;
         string email, password;
-        User user = null;
 
         try
         {
-            //UserHandler userHandler = new UserHandler();
-            //if (string.IsNullOrEmpty(tbEmail.Text)) throw new Exception("Please enter an email.");
-            //if (string.IsNullOrEmpty(tbPassword.Text)) throw new Exception("Please enter a password.");
+            UserHandler userHandler = new UserHandler(new DBUser());
+            if (string.IsNullOrEmpty(tbEmail.Text)) throw new Exception("Please enter an email.");
+            if (string.IsNullOrEmpty(tbPassword.Text)) throw new Exception("Please enter a password.");
 
-            //email = tbEmail.Text;
-            //password = tbPassword.Text;
+            email = tbEmail.Text;
+            password = tbPassword.Text;
 
-            //user = userHandler.ValidateUser(email, password);
-            //if (user == null) throw new Exception("Email or passowrd is incorrect");
-            //if (user.role == "Customer") throw new Exception("Email or passowrd is incorrect");
-            fMain = new Main(this, user);
-            fMain.Show();
+            User? user = userHandler.ValidateUser(email, password);
+            if (user == null) throw new Exception("Email or passowrd is incorrect");
+            if (!user.GetType().IsAssignableTo(typeof(Employee))) throw new Exception("Email or passowrd is incorrect");
+            main = new Main(this, user);
+            main.Show();
             this.Hide();
         }
         catch (SqlException) { MessageBox.Show("Unable to communicate with database"); }
         catch (Exception ex) { MessageBox.Show(ex.Message); }
+        
     }
 }

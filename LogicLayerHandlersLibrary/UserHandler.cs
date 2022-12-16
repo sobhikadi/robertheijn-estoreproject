@@ -51,6 +51,16 @@ namespace LogicLayerHandlersLibrary
             users.Remove(user);
         }
 
+        public User ValidateUser(string email, string enteredPassword)
+        {
+            User? user = null;
+            byte[] salt = dbHandlerUsers.GetSalt(email);
+            if (salt == null) return user;
+            byte[] enteredPasswordHashed = HashPassword(enteredPassword, salt);
+            user = dbHandlerUsers.ComaparePassword(email, enteredPasswordHashed);
+            return user;
+        }
+
         public IList<User> SearchEmployee(string term, EmployeeSearchType type)
         {
             return dbHandlerUsers.SearchEmployee(term, type);
@@ -61,21 +71,6 @@ namespace LogicLayerHandlersLibrary
             users.Clear();
             users = dbHandlerUsers.GetAllUsers();
         }
-
-
-
-
-
-
-        //public string ValidateUser(string email, string enteredPassword)
-        //{
-        //    string role = "";
-        //    byte[] salt = dbHandlerUsers.GetSalt(email);
-        //    if (salt == null) return role;
-        //    byte[] enteredPasswordHashed = HashPassword(enteredPassword, salt);
-        //    role = dbHandlerUsers.ComaparePassword(email, enteredPasswordHashed);
-        //    return role;
-        //}
 
         private byte[] HashPassword(string password, byte[] salt)
         {

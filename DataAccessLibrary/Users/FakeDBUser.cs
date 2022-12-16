@@ -9,12 +9,22 @@ namespace DataAccessLibrary.Employees
 {
     public class FakeDBUser : IDBMediatorUsers
     {
+        public User ComaparePassword(string email, byte[] enteredPassword)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool DeleteUser(User user)
         {
             throw new NotImplementedException();
         }
 
         public List<User> GetAllUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public byte[] GetSalt(string email)
         {
             throw new NotImplementedException();
         }

@@ -21,7 +21,7 @@ namespace LogicLayerEntitiesLibrary.Users
             private set
             {
                 if (string.IsNullOrEmpty(value)) throw new NullValueException("The field first name cannot be empty");
-                if (value.Length < 2 || value.Length > 255) throw new OutOfrangeException("First name must have at least 2 charachters and maximum of 255 charachters");
+                if (value.Length < 2 || value.Length > 25) throw new OutOfrangeException("First name must have at least 2 charachters and maximum of 25 charachters");
                 firstName = value;
             }
         }
@@ -29,7 +29,7 @@ namespace LogicLayerEntitiesLibrary.Users
             private set
             {
                 if (string.IsNullOrEmpty(value)) throw new NullValueException("The field last name cannot be empty");
-                if (value.Length < 2 || value.Length > 255) throw new OutOfrangeException("Last name must have at least 2 charachters and maximum of 255 charachters");
+                if (value.Length < 2 || value.Length > 25) throw new OutOfrangeException("Last name must have at least 2 charachters and maximum of 25 charachters");
                 lastName = value;
             }
         }
@@ -38,7 +38,8 @@ namespace LogicLayerEntitiesLibrary.Users
             {
                 if (string.IsNullOrEmpty(value)) throw new NullValueException("The field email cannot be empty");
                 Regex regex = new Regex(@"([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$");
-                if (!regex.IsMatch(value)) throw new ArgumentException("Email has been entered in an incorrect format");
+                if (!regex.IsMatch(value)) throw new ArgumentException("Email has been entered in an incorrect format: must be like example: [johndoe@email.nl]");
+                if (value.Length > 256) throw new OutOfrangeException("Email cannot be longer than 256 characters");
                 email = value;
             }
         }
@@ -68,7 +69,7 @@ namespace LogicLayerEntitiesLibrary.Users
             Password = password;
         }
 
-
+        
         public byte[] CreateSalt()
         {
             byte[] salt = new byte[16];

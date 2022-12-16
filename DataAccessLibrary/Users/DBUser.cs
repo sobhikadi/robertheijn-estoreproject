@@ -211,6 +211,74 @@ namespace DataAccessLibrary.Employees
             return false;
         }
 
+        public byte[] GetSalt(string email)
+        {
+            
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "select salt from [dbo].[User] where email = @email;";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@email", email);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    return (byte[])dr["salt"];
+                }
+            }
+            return null;
+        }
+
+        public User ComaparePassword(string email, byte[] enteredPassword)
+        {
+            User? user = null;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "select * from ViewEmployeeInformation where email = @email AND password = @password;";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", enteredPassword);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows) 
+                {
+                    dr.Read();
+
+                    DateTime? lastModified;
+
+                    if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
+                    else lastModified = null;
+
+                    user = new Employee(Convert.ToInt32(dr["id"]), (string)dr["first_name"], (string)dr["last_name"], (string)dr["email"], lastModified, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), (string)dr["role"]), (byte[])dr["salt"], (byte[])dr["password"]);
+                }
+                conn.Close();
+                if (user != null) return user;
+                conn.Open();
+                string sqlCus = "select * from ViewCustomerInformation where email = @email AND password = @password;";
+
+                SqlCommand cmdCus = new SqlCommand(sqlCus, conn);
+                cmdCus.Parameters.AddWithValue("@email", email);
+                cmdCus.Parameters.AddWithValue("@password", enteredPassword);
+
+                SqlDataReader drCus = cmdCus.ExecuteReader();
+
+                if (drCus.HasRows)
+                {
+                    drCus.Read();
+
+                    user = new Customer(Convert.ToInt32(drCus["id"]), (string)drCus["first_name"], (string)drCus["last_name"], (string)drCus["email"], (byte[])drCus["salt"], (byte[])drCus["password"]);
+                }
+            }
+            return user;
+        }
+
         private bool CheckIfEmployeeModified(Employee currentEmployee)
         {
             bool notModified = false;

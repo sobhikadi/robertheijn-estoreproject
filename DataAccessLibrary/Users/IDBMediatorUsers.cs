@@ -15,6 +15,10 @@ namespace DataAccessLibrary.Employees
 
         public bool DeleteUser(User user);
 
+        public byte[] GetSalt(string email);
+
+        public User ComaparePassword(string email, byte[] enteredPassword);
+
         public List<User> SearchEmployee(string term, EmployeeSearchType type);
 
         public List<User> GetAllUsers();
