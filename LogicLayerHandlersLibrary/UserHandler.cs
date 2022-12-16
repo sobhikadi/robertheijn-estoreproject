@@ -33,6 +33,17 @@ namespace LogicLayerHandlersLibrary
             users.Add(user);
         }
 
+        public void UpdateUser(User newUser, User currentUser)
+        {
+            bool updated = dbHandlerUsers.UpdateUser(newUser, currentUser);
+            if (!updated) throw new ArgumentException("Employee has not been updated successfully");
+
+            foreach (User user in users) 
+            {
+                if(user.Id == currentUser.Id) user.ChangeInformation(newUser, currentUser);
+            }
+        }
+
         public IList<User> SearchEmployee(string term, EmployeeSearchType type)
         {
             return dbHandlerUsers.SearchEmployee(term, type);

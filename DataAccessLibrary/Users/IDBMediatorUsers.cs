@@ -11,6 +11,8 @@ namespace DataAccessLibrary.Employees
     {
         public int InsertUser(User user);
 
+        public bool UpdateUser(User newUser, User currentUser);
+
         public List<User> SearchEmployee(string term, EmployeeSearchType type);
 
         public List<User> GetAllUsers();

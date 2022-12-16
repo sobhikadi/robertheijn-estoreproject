@@ -33,7 +33,7 @@ namespace LogicLayerEntitiesLibrary.Users
             orders = new List<Order>();
         }
 
-        public Customer(int id, string fName, string lName, string email) : base(id, fName, lName, email)
+        public Customer(int id, string fName, string lName, string email, byte[] salt, byte[] password) : base(id, fName, lName, email, salt, password)
         {
             orders = new List<Order>();
         }
@@ -54,6 +54,11 @@ namespace LogicLayerEntitiesLibrary.Users
             CardHolder = cardHolder;
             CCV = ccv;
             ExpirationDate = expirationDate;
+        }
+
+        public override bool ChangeInformation(User newCustomer, User currentCustomer)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -23,5 +23,10 @@ namespace DataAccessLibrary.Employees
         {
             throw new NotImplementedException();
         }
+
+        public bool UpdateUser(User newUser, User currentUser)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

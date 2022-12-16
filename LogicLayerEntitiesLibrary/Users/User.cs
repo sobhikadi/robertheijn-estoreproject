@@ -52,15 +52,20 @@ namespace LogicLayerEntitiesLibrary.Users
             LastName = lName;
             Email = email;
             Salt = CreateSalt();
-            Password = HashPassword(password, Salt);
+            if (string.IsNullOrEmpty(password)) throw new ArgumentException("The field password cannot be empty");
+            else if (password == "DoNoTUPdaTePassWord!@#HHGTR") Password = Encoding.UTF8.GetBytes(password);
+            else Password = HashPassword(password, Salt);
+            
         }
 
-        public User(int id, string fName, string lName, string email)
+        public User(int id, string fName, string lName, string email, byte[] salt, byte[] password)
         {
             Id = id;
             FirstName = fName;
             LastName = lName;
             Email = email;
+            Salt = salt;
+            Password = password;
         }
 
 
@@ -82,6 +87,25 @@ namespace LogicLayerEntitiesLibrary.Users
 
             return argon2.GetBytes(16);
         }
+
+        public void ChangeParentInformation(User newUser, User currentUser) 
+        {
+            FirstName = newUser.FirstName;
+            LastName = newUser.LastName;
+            Email = newUser.Email;
+            if (Encoding.Default.GetString(newUser.Password) == "DoNoTUPdaTePassWord!@#HHGTR")
+            {
+                Salt = currentUser.Salt;
+                Password = currentUser.Password;
+            }
+            else
+            {
+                Salt = newUser.Salt;
+                Password = newUser.Password;
+            }
+        }
+
+        public abstract bool ChangeInformation(User newUser, User currentUser);
 
 
 

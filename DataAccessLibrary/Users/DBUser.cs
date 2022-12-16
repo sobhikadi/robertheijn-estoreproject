@@ -89,7 +89,7 @@ namespace DataAccessLibrary.Employees
                     if (dr["last_modified"] != DBNull.Value) lastModified = (DateTime)dr["last_modified"];
                     else lastModified = null;
 
-                    employees.Add(new Employee(Convert.ToInt32(dr["id"]), (string)dr["first_name"], (string)dr["last_name"], (string)dr["email"], lastModified, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), (string)dr["role"])));
+                    employees.Add(new Employee(Convert.ToInt32(dr["id"]), (string)dr["first_name"], (string)dr["last_name"], (string)dr["email"], lastModified, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), (string)dr["role"]), (byte[])dr["salt"], (byte[])dr["password"]));
                 }
             }
             return employees;
@@ -141,10 +141,82 @@ namespace DataAccessLibrary.Employees
                     if (drEmp["last_modified"] != DBNull.Value) lastModified = (DateTime)drEmp["last_modified"];
                     else lastModified = null;
 
-                    users.Add(new Employee(Convert.ToInt32(drEmp["id"]), (string)drEmp["first_name"], (string)drEmp["last_name"], (string)drEmp["email"], lastModified, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), (string)drEmp["role"])));
+                    users.Add(new Employee(Convert.ToInt32(drEmp["id"]), (string)drEmp["first_name"], (string)drEmp["last_name"], (string)drEmp["email"], lastModified, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), (string)drEmp["role"]), (byte[])drEmp["salt"], (byte[])drEmp["password"]));
+                    
                 }
             }
             return users;
+        }
+
+        public bool UpdateUser(User newUser, User currentUser)
+        {
+            bool updated = false;
+
+            if (currentUser.GetType().IsAssignableTo(typeof(Employee)))
+            {
+                Employee currentEmployee = (Employee)currentUser;
+                Employee newEmployee = (Employee)newUser;
+
+
+                if (!CheckIfEmployeeModified(currentEmployee)) throw new ArgumentException("Employee information has been modified while you were changing the information");
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string sql = "Update [dbo].[User] set first_name = @firstName, last_name = @lastName, email = @email, salt = @salt, password = @password where [dbo].[User].id = @employeeId; Update Employee set role = @role, last_modified = @LastModified where dbo.Employee.id = @employeeId";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@employeeId", currentEmployee.Id);
+                    cmd.Parameters.AddWithValue("@firstName", newEmployee.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", newEmployee.LastName);
+                    cmd.Parameters.AddWithValue("@email", newEmployee.Email);
+                    if (Encoding.Default.GetString(newEmployee.Password) == "DoNoTUPdaTePassWord!@#HHGTR")
+                    {
+                        cmd.Parameters.AddWithValue("@salt", currentEmployee.Salt);
+                        cmd.Parameters.AddWithValue("@password", currentEmployee.Password);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@salt", newEmployee.Salt);
+                        cmd.Parameters.AddWithValue("@password", newEmployee.Password);
+                    }
+                    
+                    cmd.Parameters.AddWithValue("@role", newEmployee.EmployeeRole.ToString());
+                    cmd.Parameters.AddWithValue("@LastModified", newEmployee.LastModified);
+
+                    cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() > 0) updated = true;
+                }
+            }
+            else 
+            {
+
+            }
+
+            
+           
+            return updated;
+        }
+
+        private bool CheckIfEmployeeModified(Employee currentEmployee)
+        {
+            bool notModified = false;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "select id from Employee where (id = @employeeId) AND (last_modified is null OR last_modified = @lastModifiedCurrent)";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@employeeId", currentEmployee.Id);
+                if (currentEmployee.LastModified != null) cmd.Parameters.AddWithValue("@lastModifiedCurrent", currentEmployee.LastModified);
+                else cmd.Parameters.AddWithValue("@lastModifiedCurrent", DBNull.Value);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    if ((int)dr["id"] == currentEmployee.Id) notModified = true;
+                }
+            }
+            return notModified;
         }
 
         private bool CheckIfUserExist(string email)
