@@ -142,25 +142,25 @@ namespace DesktopApplication.Forms.Employees
 
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
-            //    if (selectedEmployeeFromList == null)
-            //    {
-            //        MessageBox.Show("Please select an Employee first");
-            //        return;
-            //    }
-            //    DialogResult dr = MessageBox.Show($"Are You sure you want to Delete this Employee ({selectedEmployeeFromList.FirstName} {selectedEmployeeFromList.LastName}) ?", "Delete Employee?", MessageBoxButtons.OKCancel);
-            //    if (dr == DialogResult.OK)
-            //    {
-            //        try
-            //        {
-            //            userHandler.DeleteEmployee(selectedEmployeeFromList);
-            //            MessageBox.Show("Employee has successfully been deleted");
-            //            btnShowAllUsers.PerformClick();
-            //        }
-            //        catch (SqlException) { MessageBox.Show("Something went wrong with database connection"); }
-            //        catch (Exception ex) { MessageBox.Show(ex.Message); }
+            if (selectedEmployee == null)
+            {
+                MessageBox.Show("Please select an Employee first");
+                return;
+            }
+            DialogResult dr = MessageBox.Show($"Are You sure you want to Delete this Employee ({selectedEmployee.FirstName} {selectedEmployee.LastName}) ?", "Delete Employee?", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.OK)
+            {
+                try
+                {
+                    userHandler.DeleteUser(selectedEmployee);
+                    MessageBox.Show("Employee has successfully been deleted");
+                    btnShowAllUsers.PerformClick();
+                }
+                catch (SqlException) { MessageBox.Show("Something went wrong with database connection"); }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
 
-            //    }
-            //    else return;
+            }
+            else return;
         }
 
         private void listViewUsers_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

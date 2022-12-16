@@ -197,6 +197,20 @@ namespace DataAccessLibrary.Employees
             return updated;
         }
 
+        public bool DeleteUser(User user)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "Delete from [dbo].[User] where id = @id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", user.Id);
+
+                if (cmd.ExecuteNonQuery() != 0) return true;
+            }
+            return false;
+        }
+
         private bool CheckIfEmployeeModified(Employee currentEmployee)
         {
             bool notModified = false;

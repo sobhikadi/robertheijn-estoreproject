@@ -44,6 +44,13 @@ namespace LogicLayerHandlersLibrary
             }
         }
 
+        public void DeleteUser(User user)
+        {
+            bool deleted = dbHandlerUsers.DeleteUser(user);
+            if (!deleted) throw new ArgumentException("Employee has not been deleted successfully");
+            users.Remove(user);
+        }
+
         public IList<User> SearchEmployee(string term, EmployeeSearchType type)
         {
             return dbHandlerUsers.SearchEmployee(term, type);

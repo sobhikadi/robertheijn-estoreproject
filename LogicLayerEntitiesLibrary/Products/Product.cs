@@ -40,7 +40,7 @@ namespace LogicLayerEntitiesLibrary.Products
         public byte[]? Image { get { return image; } private set { image = value; } }
         public DateTime? LastModified { get { return lastModified; } private set { lastModified = value; } }
         public bool InStock { get { return inStock; } private set { inStock = value; } }
-        public List<Discount> Bonus { get; private set; }
+        public List<Discount> Discounts { get; private set; }
 
         public Product(string name, Suffix category, Suffix subCatgeory, Suffix unit, double price, byte[]? image, bool inStock, DateTime? lastModified) 
         {
@@ -52,7 +52,7 @@ namespace LogicLayerEntitiesLibrary.Products
             Price = price;
             InStock = inStock;
             Image = image;
-            Bonus = new List<Discount>();
+            Discounts = new List<Discount>();
         }
 
         public Product(int id, string name, Suffix category, Suffix subCatgeory, Suffix unit, double price, byte[]? image, bool inStock, DateTime? lastModified) 

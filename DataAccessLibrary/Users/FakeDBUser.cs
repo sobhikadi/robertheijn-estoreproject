@@ -9,6 +9,11 @@ namespace DataAccessLibrary.Employees
 {
     public class FakeDBUser : IDBMediatorUsers
     {
+        public bool DeleteUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<User> GetAllUsers()
         {
             throw new NotImplementedException();

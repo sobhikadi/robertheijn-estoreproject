@@ -13,6 +13,8 @@ namespace DataAccessLibrary.Employees
 
         public bool UpdateUser(User newUser, User currentUser);
 
+        public bool DeleteUser(User user);
+
         public List<User> SearchEmployee(string term, EmployeeSearchType type);
 
         public List<User> GetAllUsers();

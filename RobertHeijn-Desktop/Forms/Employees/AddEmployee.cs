@@ -41,7 +41,7 @@ namespace DesktopApplication.Forms.Employees
             email = tbEmail.Text;
             password = tbPassword.Text;
             confirmPaswd = tbRepeatPassword.Text;
-            role = (EmployeeRole)cboxRoles.SelectedItem;
+            
 
             DialogResult dr = MessageBox.Show($"Are You sure you want to add this mployee ({firstName})?", "Add Employee?", MessageBoxButtons.OKCancel);
             if (dr == DialogResult.OK)
@@ -51,7 +51,8 @@ namespace DesktopApplication.Forms.Employees
                     if (string.IsNullOrEmpty(password)) throw new NullValueException("The field password cannot be empty");
                     if (string.IsNullOrEmpty(confirmPaswd)) { throw new NullValueException("password confirmation field is empty"); }
                     if (password != confirmPaswd) throw new ArgumentException("Password and confirmation does not match");
-
+                    if (cboxRoles.SelectedIndex < 0) throw new NullValueException("Please select a role");
+                    role = (EmployeeRole)cboxRoles.SelectedItem;
                     User employee = new Employee(firstName, lastName, email, password, null, role);
 
                     userHandler.AddUser(employee);
