@@ -20,8 +20,28 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Fontys/Semeester 2/Synthesis Assingment/Application/robertheijn-b.v/RobertHeijn-Website/Pages/LogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Fontys/Semeester 2/Synthesis Assingment/Application/robertheijn-b.v/RobertHeijn-Website/Pages/LogOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nT3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Fontys/Semeester 2/Synthesis Assingment/Application/robertheijn-b.v/RobertHeijn-Website/Pages/Shared/_UserPageLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Vc2VyUGFnZUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Fontys/Semeester 2/Synthesis Assingment/Application/robertheijn-b.v/RobertHeijn-Website/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Fontys/Semeester 2/Synthesis Assingment/Application/robertheijn-b.v/RobertHeijn-Website/Pages/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Fontys/Semeester 2/Synthesis Assingment/Application/robertheijn-b.v/RobertHeijn-Website/Pages/UserPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Fontys/Semeester 2/Synthesis Assingment/Application/robertheijn-b.v/RobertHeijn-Website/Pages/_ViewImports.cshtml]

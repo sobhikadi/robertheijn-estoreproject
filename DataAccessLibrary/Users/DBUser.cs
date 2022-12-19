@@ -43,7 +43,7 @@ namespace DataAccessLibrary.Employees
                 {
                     Customer customer = (Customer)user;
 
-                    string sql = "insert into User (first_name, last_name, email, salt, password) values (@firstName, @lastName, @email, @salt, @password); select SCOPE_IDENTITY(); insert into Customer (id) values (SCOPE_IDENTITY())";
+                    string sql = "insert into [User] (first_name, last_name, email, salt, password) values (@firstName, @lastName, @email, @salt, @password); select SCOPE_IDENTITY(); insert into Customer (id) values (SCOPE_IDENTITY())";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@firstName", customer.FirstName);
                     cmd.Parameters.AddWithValue("@lastName", customer.LastName);

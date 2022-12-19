@@ -1,0 +1,87 @@
+﻿@page
+@model Website.Pages.SignUpModel
+@{
+	ViewData["Title"] = "SignUp - ";
+}
+
+<div class="container pt-3 pb-5 mb-3">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-lg-9 col-xl-7">
+            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: rgb(40, 91, 246);">Registration Form</h3>
+                    <form method="post">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <label class="form-label" asp-for="FirstName">First Name</label>
+                                    <input type="text" asp-for="FirstName" class="form-control form-control-lg" placeholder="Enter First Name" />
+                                </div>
+                                <span asp-validation-for="FirstName"></span>
+                            </div>
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <label class="form-label" asp-for="LastName">Last Name</label>
+                                    <input type="text" asp-for="LastName" class="form-control form-control-lg" placeholder="Enter Last Name" />
+                                </div>
+                                <span asp-validation-for="LastName"></span>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mb-4 d-flex align-items-center">
+
+                                <div class="form-outline datepicker w-100">
+                                    <label asp-for="Email" class="form-label">Email</label>
+                                    <input type="email" class="form-control form-control-lg" asp-for="Email" placeholder="Enter Email" />
+                                    <span asp-validation-for="Email"></span>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4 pb-2">
+
+                                <div class="form-outline">
+                                    <label class="form-label" asp-for="Password">Password</label>
+                                    <input type="text" asp-for="Password" class="form-control form-control-lg" placeholder="Enter password" />
+                                </div>
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="col-md-6 mb-4 pb-2">
+
+                                <div class="form-outline">
+                                    <label class="form-label" asp-for="RepeatPassword">Repeat Password</label>
+                                    <input type="text" asp-for="RepeatPassword" class="form-control form-control-lg" placeholder="Repeat password" />
+                                </div>
+                                <span asp-validation-for="RepeatPassword"></span>
+                            </div>
+
+
+                        </div>
+
+                        <div class="text-center text-lg-start d-grid col-12 col-sm-6">
+                            <button type="submit" asp-route="/UserPage" class="btn btn-lg text-white" style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:rgb(40, 91, 246);">
+                                Sign Up
+                            </button>
+                        </div>
+                        <p>  </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+ }

@@ -5,6 +5,26 @@
       "PackagePath": "staticwebassets\\Website.bundle.scp.css"
     },
     {
+      "Id": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\wwwroot\\Images\\LogoMeduim.png",
+      "PackagePath": "staticwebassets\\Images\\LogoMeduim.png"
+    },
+    {
+      "Id": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\wwwroot\\Images\\background.jpg",
+      "PackagePath": "staticwebassets\\Images\\background.jpg"
+    },
+    {
+      "Id": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\wwwroot\\Images\\fruits1.jpeg",
+      "PackagePath": "staticwebassets\\Images\\fruits1.jpeg"
+    },
+    {
+      "Id": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\wwwroot\\Images\\fruits2.jpg",
+      "PackagePath": "staticwebassets\\Images\\fruits2.jpg"
+    },
+    {
+      "Id": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\wwwroot\\Images\\fruits3.jpeg",
+      "PackagePath": "staticwebassets\\Images\\fruits3.jpeg"
+    },
+    {
       "Id": "D:\\Fontys\\Semeester 2\\Synthesis Assingment\\Application\\robertheijn-b.v\\RobertHeijn-Website\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

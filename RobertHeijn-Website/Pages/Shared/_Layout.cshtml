@@ -3,31 +3,72 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RobertHeijn_Website</title>
+    <title>@ViewData["Title"] - RobertHeijn</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RobertHeijn_Website.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header class="sticky-md-top">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" style="background-color: rgb(40, 91, 246);">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">RobertHeijn_Website</a>
+                <a class="navbar-brand text-light fs-4 fw-bold" asp-area="" asp-page="/Index">RobertHeijn</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <form class="d-flex flex-sm-grow-1 mx-sm-5 my-3 my-sm-0" role="search">
+                        <input class="form-control me-2 rounded-pill fw-normal fw-semibold" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light rounded-pill" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav" style="flex-direction: row; justify-content: space-around;">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark " asp-area="" asp-page="/LogIn">
+                                <svg  xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" class="bi bi-person-circle hoverable" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                </svg>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" class="bi bi-star hoverable" viewBox="0 0 16 16">
+                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                </svg>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" class="bi bi-cart4 hoverable" viewBox="0 0 16 16">
+                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                                </svg>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
+        </nav>
+
+
+        <nav class="container d-flex mx-auto mx-2 px-1 box-shadow fs-5 bg-light rounded-bottom">
+            <ul class="nav w-100">
+                <li class="nav-item dropdown d-flex align-items-center text-decoration-none">
+                    <a class="nav-item text-decoration-none ms-2 text-dark" asp-page="/Products" role="button">
+                        Products
+                    </a>
+                    <a class="dropdown-link dropdown-toggle ms-2 pt-1 text-dark" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </a>
+                    @RenderSection("ProductsMenu", required: false)
+                    
+                </li>
+                <li class="nav-item ms-auto">
+                    <a class="nav-link text-dark" asp-page="/privacy">Customer service</a>
+                </li>
+            </ul>
         </nav>
     </header>
     <div class="container">
@@ -36,9 +77,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top fixed-bottom p-3 footer text-white shadow" style="background-color:rgba(40, 91, 246">
         <div class="container">
-            &copy; 2022 - RobertHeijn_Website - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2022 - RobertHeijn - <a asp-area="" asp-page="/Privacy">Terms And Conditions</a>
         </div>
     </footer>
 

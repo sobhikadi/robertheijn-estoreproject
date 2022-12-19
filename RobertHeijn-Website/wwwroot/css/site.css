@@ -1,5 +1,11 @@
+<style > @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap'); </style >
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -15,4 +21,26 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+
+a {
+    color: white !important;
+}
+
+a:hover {
+    color: #FFB26B !important;
+}
+
+.hoverable:hover {
+    fill: #FFB26B !important;
+}
+
+@media (min-width: 576px) {
+    .Change-con-size {
+        height: 73vh;    
+    }
+    .change-size {
+        height: 100%;
+    }
 }

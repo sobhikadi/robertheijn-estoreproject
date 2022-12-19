@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="container d-flex text-black ">
+    <div class="col-sm-2 col-lg-1 rounded-3 Change-con-size" style="background-color:rgba(35, 40, 45)">
+         <button class="d-sm-none btn navbar-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#SidebarMenu" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-sm-flex change-size" id="SidebarMenu">
+            <ul class="d-flex flex-sm-column gap-2 list-unstyled col-sm-12 change-size">
+                <li class="nav-item mt-sm-3"><a class="nav-link" asp-page="/UserPage">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" asp-page="/Profile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" asp-page="/WorkSchedule">Work Schedule</a></li>
+                <li class="nav-item ms-auto ms-sm-0 mt-sm-auto"><a class="nav-link" asp-page="/LogOut">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container p-2 col-12 col-sm-10 col-lg-11">
+        @RenderBody()
+    </div>
+</div>
