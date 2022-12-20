@@ -17,7 +17,7 @@ namespace DesktopApplication.Forms.Products
 {
     public partial class Products : Form
     {
-        private ProductHandlers productHandler;
+        private ProductHandler productHandler;
         private SuffixesHandler suffixesHandler;
         private Product? selectedProduct;
 
@@ -35,7 +35,7 @@ namespace DesktopApplication.Forms.Products
         {
             try
             {
-                productHandler = new ProductHandlers(new DBProduct());
+                productHandler = new ProductHandler(new DBProduct());
                 suffixesHandler = new(new DBProduct());
             }
             catch (SqlException) { MessageBox.Show("Unable to communicate with database"); }

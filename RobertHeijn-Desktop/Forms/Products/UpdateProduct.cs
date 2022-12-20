@@ -16,11 +16,11 @@ namespace DesktopApplication.Forms.Products
 {
     public partial class UpdateProduct : Form
     {
-        private ProductHandlers productHandler;
+        private ProductHandler productHandler;
         private SuffixesHandler suffixesHandler;
         Product currentProduct;
 
-        public UpdateProduct(ProductHandlers productHandler, Product currentProduct, SuffixesHandler suffixesHandler)
+        public UpdateProduct(ProductHandler productHandler, Product currentProduct, SuffixesHandler suffixesHandler)
         {
             InitializeComponent();
             this.productHandler = productHandler;

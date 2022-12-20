@@ -11,7 +11,7 @@
     @foreach (var cat in Model.categories)
     {
         <li class="nav-link" >
-            <a class="nav-link text-decoration-none text-dark" asp-route-name="@cat.Name" asp-page="/Products" role="button">
+            <a class="nav-item text-decoration-none text-dark" asp-route-category="@cat.Name" asp-page="/Products" role="button">
                 @cat.Name
             </a>
         </li>

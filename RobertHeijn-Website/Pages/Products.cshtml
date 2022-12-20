@@ -1,0 +1,46 @@
+﻿@page
+@model Website.Pages.ProductsModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+@section ProductsMenu
+    {
+    <ul class="dropdown-menu">
+
+        @foreach (var cat in Model.categories)
+        {
+            <li class="nav-link">
+                <a class="nav-item text-decoration-none text-dark" asp-route-category="@cat.Name" asp-page="/Products" role="button">
+                    @cat.Name
+                </a>
+            </li>
+        }
+    </ul>
+}
+
+<div class="row row-cols-1 row-cols-sm-3 row-cols-lg-4 g-3 my-2">
+    @foreach (var p in Model.Products)
+    {
+        <div class="col" >
+            <div class="card h-100 shadow-sm">
+                @if (p.Image != null)
+                {
+                        <img src="data:image;base64,@System.Convert.ToBase64String(p.Image)" class="card-img-top bg-light rounded-start" alt="@p.Name">
+                }
+                else
+                {
+                        <img src="" class="card-img-top rounded-start" alt="@p.Name">
+                }
+                <div>
+                    <div class="card-body">
+                        <h5 class="card-title">@p.Name</h5>
+                        <p class="card-text">@p.Category.Name</p>
+                            <p class="card-text">@p.SubCategory.Name</p>
+                        <p class="card-text">@p.Price</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

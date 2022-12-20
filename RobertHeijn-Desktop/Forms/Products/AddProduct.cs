@@ -16,10 +16,10 @@ namespace DesktopApplication.Forms.Products
 {
     public partial class AddProduct : Form
     {
-        private ProductHandlers productHandler;
+        private ProductHandler productHandler;
         private SuffixesHandler suffixesHandler;
 
-        public AddProduct(ProductHandlers productHandler, SuffixesHandler suffixesHandler)
+        public AddProduct(ProductHandler productHandler, SuffixesHandler suffixesHandler)
         {
             InitializeComponent();
             this.productHandler = productHandler;
@@ -83,15 +83,19 @@ namespace DesktopApplication.Forms.Products
 
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = ofdImage.ShowDialog();
-            ofdImage.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
-            Image? img = null;
-            if (dialogResult == DialogResult.OK)
+            try
             {
-                img = new Bitmap(ofdImage.FileName);
-                pboxImage.Image = img.GetThumbnailImage(340, 165, null, new IntPtr());
+                DialogResult dialogResult = ofdImage.ShowDialog();
+                ofdImage.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+                Image? img = null;
+                if (dialogResult == DialogResult.OK)
+                {
+                    img = new Bitmap(ofdImage.FileName);
+                    pboxImage.Image = img.GetThumbnailImage(340, 165, null, new IntPtr());
+                }
+                else return;
             }
-            else return;
+            catch (Exception) { MessageBox.Show("Image is not valid"); } 
         }
 
         private void btnDeleteImage_Click(object sender, EventArgs e)
