@@ -18,6 +18,30 @@
         }
     </ul>
 }
+ @if (ViewData["failMessages"] != null)
+{
+    @if (ViewData["failMessages"].ToString() == "NotLoggedIn")
+    {
+        <div class="container bg-warning mt-1 rounded-3 d-flex align-items-center">
+
+            <p class="me-auto h-50 align-self-center">
+                To be able to add items to cart you need to have an account/logged in. Please Log in first.
+            </p>
+            <button type="button" onclick="location.href='LogIn';" class="btn btn-primary btn-sm h-50">Log In/CreatAccount</button>
+
+        </div>
+    }
+    else
+    {
+        <div class="container bg-info my-1 rounded-3">
+
+            <p>
+                @ViewData["failMessages"].ToString()
+            </p>
+
+        </div>
+    }
+}
 
 <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-4 g-3 my-2">
     @foreach (var p in Model.Products)
@@ -26,20 +50,39 @@
             <div class="card h-100 shadow-sm">
                 @if (p.Image != null)
                 {
-                        <img src="data:image;base64,@System.Convert.ToBase64String(p.Image)" class="card-img-top bg-light rounded-start" alt="@p.Name">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(p.Image)" class="card-img-top bg-light rounded-top" alt="@p.Name">
                 }
                 else
                 {
                         <img src="" class="card-img-top rounded-start" alt="@p.Name">
                 }
-                <div>
+                <form method="post">
                     <div class="card-body">
                         <h5 class="card-title">@p.Name</h5>
+                        <input asp-for="ProductId" value="@p.Id" type="number" readonly class="d-none" />
                         <p class="card-text">@p.Category.Name</p>
                             <p class="card-text">@p.SubCategory.Name</p>
-                        <p class="card-text">@p.Price</p>
+                        <p class="card-text">@p.Price €</p>
+
                     </div>
-                </div>
+                    
+                    <div  class="d-flex flex-row gap-1 justify-content-end me-1 mb-1 ">
+                        <a class="btn px-2 btn-outline-primary text-primary" style="width: 30px;"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fa fa-minus"></i>
+                        </a>
+
+                        <input asp-for="Quantity"  min="1" value="1" type="number"
+                          class="form-control form-control-sm" style="width: 40px;" />
+
+                        <a class="btn px-2 btn-outline-primary text-primary" style="width: 30px;"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <button type="submit" class="btn px-2 btn-outline-primary">Add To Cart</button>
+                    </div>
+                </form>
+                
             </div>
         </div>
     }

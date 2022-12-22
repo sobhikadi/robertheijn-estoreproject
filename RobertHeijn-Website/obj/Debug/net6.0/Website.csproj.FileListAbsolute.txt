@@ -8,6 +8,11 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Website.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Konscious.Security.Cryptography.Argon2.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Konscious.Security.Cryptography.Blake2.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Microsoft.Extensions.PlatformAbstractions.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Nancy.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\System.Data.SqlClient.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
@@ -28,6 +33,11 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.MvcApplicationPartsAssemblyInfo.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.RazorAssemblyInfo.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.RazorAssemblyInfo.cs
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.Website.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.build.Website.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Website.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Website.props
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets.pack.json
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets.build.json
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets.development.json
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
@@ -39,8 +49,3 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\Website.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\ref\Website.dll
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.Website.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.build.Website.props
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Website.props
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Website.props
-D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Website\obj\Debug\net6.0\staticwebassets.pack.json

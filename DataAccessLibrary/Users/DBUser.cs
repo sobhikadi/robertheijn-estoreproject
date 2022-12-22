@@ -67,7 +67,6 @@ namespace DataAccessLibrary.Employees
                 if (type == EmployeeSearchType.role)
                 {
                     query = "select * from ViewEmployeeInformation WHERE role = @role ORDER BY id;";
-
                 }
                 else
                 {

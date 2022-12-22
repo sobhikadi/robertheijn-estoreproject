@@ -28,9 +28,9 @@ namespace Website.Pages
 
             string position = "";
 
-            if (Request.Cookies.ContainsKey("robert-heijn_remember_me_cookie") && HttpContext.User.Identity.Name == null)
+            if (Request.Cookies.ContainsKey("robert_heijn_remember_me_cookie") && !HttpContext.User.Identity.IsAuthenticated)
             {
-                string[] coockieValue = Request.Cookies["robert-heijn_remember_me_cookie"].Split("-");
+                string[] coockieValue = Request.Cookies["robert_heijn_remember_me_cookie"].Split("-");
 
                 position = coockieValue[1];
                 UserName = coockieValue[0];
@@ -48,14 +48,14 @@ namespace Website.Pages
                 };
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
             }
-            else if (HttpContext.User.Identity.Name != null)
+            else if (HttpContext.User.Identity.IsAuthenticated)
             {
                 UserName = HttpContext.User.Identity.Name;
                 position = HttpContext.User.FindFirst("position").Value;
             }
 
             
-            if (position == "Customer") return new RedirectToPageResult("UserPage");
+            if (position.Trim() == "Customer") return new RedirectToPageResult("UserPage");
             
             return Page();
         }
