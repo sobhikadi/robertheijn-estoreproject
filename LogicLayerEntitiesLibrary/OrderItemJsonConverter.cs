@@ -1,4 +1,5 @@
 ﻿using LogicLayerEntitiesLibrary.Orders;
+using LogicLayerEntitiesLibrary.Products;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -25,22 +26,19 @@ namespace LogicLayerEntitiesLibrary
             // Read the properties which will be used as constructor parameters
             foreach (JObject jo in ja) 
             {
+
                 int? orderId = (int?)jo["OrderId"];
-                int productId = (int)jo["ProductId"];
+                Product product = new Product((int)jo["Product"]["Id"], (string)jo["Product"]["Name"], 
+                    new Suffix((int)jo["Product"]["Category"]["Id"], (string)jo["Product"]["Category"]["Name"], SuffixType.category), 
+                    new Suffix((int)jo["Product"]["SubCategory"]["Id"], (string)jo["Product"]["SubCategory"]["Name"], SuffixType.sub_category), 
+                    new Suffix((int)jo["Product"]["Unit"]["Id"], (string)jo["Product"]["Unit"]["Name"], SuffixType.unit), 
+                    (double)jo["Product"]["Price"], (byte[])jo["Product"]["Image"],(bool)jo["Product"]["InStock"], (DateTime?)jo["Product"]["LastModified"]);
                 int quantity = (int)jo["Quantity"];
                 double price = (double)jo["PricePerItem"];
 
-                items.Add(new OrderItem(orderId, productId, quantity, price));
+                items.Add(new OrderItem(orderId, product, quantity, price));
             }
-            
-            
-
-
-            // Construct the Result object using the non-default constructor
-            
-
-            // (If anything else needs to be populated on the result object, do that here)
-
+ 
             // Return the result
             return items;
         }

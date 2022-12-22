@@ -101,35 +101,18 @@ namespace DataAccessLibrary.Employees
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                //string sqlCus =
-                //    " select users.id, firstName, lastName, email, salt, Password, phoneNumber, Address, postalCode, LastModified, BillingAddress, billingPostalCode from users inner join Customer on users.Id = Customer.Id order by users.id;";
+                string sqlCus = " select * from ViewCustomerInformation order by id;";
 
-                //SqlCommand cmdCus = new SqlCommand(sqlCus, conn);
+                SqlCommand cmdCus = new SqlCommand(sqlCus, conn);
+                SqlDataReader drCus = cmdCus.ExecuteReader();
 
-                //SqlDataReader drCus = cmdCus.ExecuteReader();
-
-                //while (drCus.Read())
-                //{
-                //    string? phoneNumber, address, postalCode, billingAddress, billingPostalCode;
-                //    DateTime? lastModified;
-                //    if (drCus["phoneNumber"] != DBNull.Value) phoneNumber = (string)drCus["phoneNumber"];
-                //    else phoneNumber = null;
-                //    if (drCus["address"] != DBNull.Value) address = (string)drCus["address"];
-                //    else address = null;
-                //    if (drCus["postalCode"] != DBNull.Value) postalCode = (string)drCus["postalCode"];
-                //    else postalCode = null;
-                //    if (drCus["billingAddress"] != DBNull.Value) billingAddress = (string)drCus["billingAddress"];
-                //    else billingAddress = null;
-                //    if (drCus["billingPostalCode"] != DBNull.Value) billingPostalCode = (string)drCus["billingPostalCode"];
-                //    else billingPostalCode = null;
-                //    if (drCus["LastModified"] != DBNull.Value) lastModified = (DateTime)drCus["LastModified"];
-                //    else lastModified = null;
-
-                //    users.Add(new Customer(Convert.ToInt32(drCus["id"]), (string)drCus["firstName"], (string)drCus["lastname"], (string)drCus["email"], (byte[])drCus["salt"], (byte[])drCus["password"], phoneNumber, address, postalCode, billingAddress, billingPostalCode, lastModified));
-                //}
-
-                string sqlEmp = " select * from ViewEmployeeInformation;";
-
+                while (drCus.Read())
+                {
+                    users.Add(new Customer(Convert.ToInt32(drCus["id"]), (string)drCus["first_name"], (string)drCus["last_name"], (string)drCus["email"], (byte[])drCus["salt"], (byte[])drCus["password"]));
+                }
+                conn.Close();
+                string sqlEmp = " select * from ViewEmployeeInformation order by id;";
+                conn.Open();
                 SqlCommand cmdEmp = new SqlCommand(sqlEmp, conn);
                 SqlDataReader drEmp = cmdEmp.ExecuteReader();
 
@@ -141,7 +124,6 @@ namespace DataAccessLibrary.Employees
                     else lastModified = null;
 
                     users.Add(new Employee(Convert.ToInt32(drEmp["id"]), (string)drEmp["first_name"], (string)drEmp["last_name"], (string)drEmp["email"], lastModified, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), (string)drEmp["role"]), (byte[])drEmp["salt"], (byte[])drEmp["password"]));
-                    
                 }
             }
             return users;

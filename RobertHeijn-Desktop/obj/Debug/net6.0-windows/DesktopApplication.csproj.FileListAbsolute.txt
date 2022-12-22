@@ -43,3 +43,4 @@ D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHei
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.pdb
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\DesktopApplication.genruntimeconfig.cache
 D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\obj\Debug\net6.0-windows\ref\DesktopApplication.dll
+D:\Fontys\Semeester 2\Synthesis Assingment\Application\robertheijn-b.v\RobertHeijn-Desktop\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

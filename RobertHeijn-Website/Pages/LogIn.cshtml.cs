@@ -63,9 +63,9 @@ namespace Website.Pages
         public IActionResult OnPost()
         {
             UserHandler handler = new UserHandler(new DBUser());
-            User Customer = handler.ValidateUser(UserName, Password);
+            User customer = handler.ValidateUser(UserName, Password);
 
-            if (Customer == null)
+            if (customer == null)
             {
                 ViewData["LoginMessage"] = "Email or Passwrod is incorrect";
                 return Page();

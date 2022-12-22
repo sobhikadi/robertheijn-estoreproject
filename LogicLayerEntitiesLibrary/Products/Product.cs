@@ -66,6 +66,7 @@ namespace LogicLayerEntitiesLibrary.Products
             Price = price;
             InStock = inStock;
             Image = image;
+            Discounts = new List<Discount>();
         }
 
         public void ChangeInformation(Product newProduct)

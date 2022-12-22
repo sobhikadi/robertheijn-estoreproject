@@ -74,15 +74,15 @@ namespace Website.Pages
              
 
                 List<OrderItem> cart = HttpContext.Session.GetObject<List<OrderItem>>(userName) ?? new List<OrderItem>();
-                OrderItem cartItem = cart.FirstOrDefault(i => i.ProductId == product.Id);
+                OrderItem cartItem = cart.FirstOrDefault(i => i.Product.Id == product.Id);
 
                 if (!product.InStock) return new RedirectToPageResult(path, new { failMessages = $"The item {product.Name} went out of stock, therefore is no longer possible to order" });
                 if (cartItem != null)
                 {
-                    return new RedirectToPageResult(path, new { failMessages = $"The Item {product.Name} is already in cart" });
+                    return new RedirectToPageResult(path, new { failMessages = $"The Item {product.Name} is already in cart, please modify the quantity in cart if you would like to buy more" });
                 }
                 
-                cart.Add(new OrderItem(null, product.Id, Quantity, product.Price));
+                cart.Add(new OrderItem(null, product, Quantity, product.Price));
                 HttpContext.Session.SetObject(userName, cart);
 
 

@@ -11,7 +11,7 @@ namespace LogicLayerEntitiesLibrary.Orders
     {
         public int Id { get; set; }
         public int? OrderId { get; private set; }
-        public int ProductId { get; private set; }
+        public Product Product { get; private set; }
         public int Quantity { get; private set; }
         public double PricePerItem { get; private set; }
         public double Total { 
@@ -21,21 +21,26 @@ namespace LogicLayerEntitiesLibrary.Orders
             }
             private set { } }
 
-        public OrderItem(int? orderId, int productId, int quantity, double price) 
+        public OrderItem(int? orderId, Product product, int quantity, double price) 
         {
             OrderId = orderId;
-            ProductId = productId;
+            Product = product;
             Quantity = quantity;
             PricePerItem = price;
         }
 
-        public OrderItem(int id, int? orderId, int productId, int quantity, double price)
+        public OrderItem(int id, int? orderId, Product product, int quantity, double price)
         {
             Id = id;
             OrderId = orderId;
-            ProductId = productId;
+            Product = product;
             Quantity = quantity;
             PricePerItem = price;
+        }
+
+        public void ChangeQuantity(int amount) 
+        {
+            Quantity = amount;
         }
     }
 
