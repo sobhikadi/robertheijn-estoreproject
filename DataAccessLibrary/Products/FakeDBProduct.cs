@@ -12,42 +12,48 @@ namespace DataAccessLibrary.Products
     {
         public int AddAdvertisement(Product product, Discount discount)
         {
-            throw new NotImplementedException();
+            return 1;
         }
 
         public bool DeleteProduct(Product product)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public List<Product> GetAllProducts()
         {
-            throw new NotImplementedException();
+            List<Product> products = new List<Product>();
+
+            return products;
         }
 
         public List<Suffix> GetAllSuffixes()
         {
-            throw new NotImplementedException();
+            List<Suffix> suffixes = new List<Suffix>();
+
+            return suffixes;
         }
 
         public int InsertProduct(Product product)
         {
-            throw new NotImplementedException();
+            return 1;
         }
 
         public int InsertSuffix(Suffix suffix)
         {
-            throw new NotImplementedException();
+            return 1;
         }
 
         public List<Product> SearchProduct(string term, ProductSearchType type)
         {
-            throw new NotImplementedException();
+            List<Product> products = new List<Product>();
+
+            return products;
         }
 
         public bool UpdateProduct(Product newProduct, Product currentProduct)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
