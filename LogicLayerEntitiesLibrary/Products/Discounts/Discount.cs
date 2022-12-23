@@ -54,8 +54,6 @@ namespace LogicLayerEntitiesLibrary.Products.DiscountS
             MinimumProducts = minNuProducts;
             DiscountAmount = discount;
         }
-
-        
-
     }
 }
+  

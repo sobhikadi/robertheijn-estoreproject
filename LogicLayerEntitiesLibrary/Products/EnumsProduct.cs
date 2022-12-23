@@ -21,4 +21,11 @@ namespace LogicLayerEntitiesLibrary.Products
         HalfPrice,
         UnitsForPrice
     }
+
+    public enum SuffixType
+    {
+        category,
+        sub_category,
+        unit
+    }
 }

@@ -35,13 +35,6 @@ namespace LogicLayerEntitiesLibrary.Products
         {
             return name;
         }
-    }
-
-
-    public enum SuffixType 
-    {
-        category,
-        sub_category,
-        unit
-    }
+    } 
+    
 }

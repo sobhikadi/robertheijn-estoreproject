@@ -256,6 +256,11 @@ namespace DataAccessLibrary.Products
 
         }
 
+        public int AddAdvertisement(Product product, Discount discount)
+        {
+            return 1;
+        }
+
         private bool CheckIfProductExist(string name)
         {
             bool exist = false;
@@ -314,7 +319,7 @@ namespace DataAccessLibrary.Products
             return notModified;
         }
 
-        private List<Suffix> GetProductSuffixes(int cat, int subCat, int unit) 
+        private List<Suffix> GetProductSuffixes(int cat, int subCat, int unit)
         {
             List<Suffix> listSuffix = new List<Suffix>();
             foreach (SuffixType type in Enum.GetValues(typeof(SuffixType)))
@@ -349,10 +354,6 @@ namespace DataAccessLibrary.Products
             }
             return listSuffix;
         }
-
-        public int AddAdvertisement(Product product, Discount discount)
-        {
-            return 1;
-        }
     }
+
 }
