@@ -1,4 +1,5 @@
 ﻿using LogicLayerEntitiesLibrary.Products;
+using LogicLayerEntitiesLibrary.Products.DiscountS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace DataAccessLibrary.Products
         public List<Product> SearchProduct(string term, ProductSearchType type);
         public int InsertSuffix(Suffix suffix);
         public List<Suffix> GetAllSuffixes();
+        public int AddAdvertisement(Product product ,Discount discount);
     }
 }

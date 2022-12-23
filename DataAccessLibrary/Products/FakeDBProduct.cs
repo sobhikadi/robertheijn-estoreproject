@@ -1,4 +1,5 @@
 ﻿using LogicLayerEntitiesLibrary.Products;
+using LogicLayerEntitiesLibrary.Products.DiscountS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace DataAccessLibrary.Products
 {
     public class FakeDBProduct : IDBMediatorProducts
     {
+        public int AddAdvertisement(Product product, Discount discount)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool DeleteProduct(Product product)
         {
             throw new NotImplementedException();

@@ -1,5 +1,6 @@
 ﻿using DataAccessLibrary.Products;
 using LogicLayerEntitiesLibrary.Products;
+using LogicLayerEntitiesLibrary.Products.DiscountS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,14 @@ namespace LogicLayerHandlersLibrary
             bool deleted = dbHandlerProduct.DeleteProduct(product);
             if (!deleted) throw new ArgumentException("Product has not been deleted successfully");
             products.Remove(product);
+        }
+
+        public void AddAdvertisement(Product product, Discount discount) 
+        {
+            int id = dbHandlerProduct.AddAdvertisement(product, discount);
+            if (id == 0) throw new ArgumentException("Discount has not been added successfully");
+            Product p =  products.FirstOrDefault(i => i.Id == product.Id);
+            p.AddAdvertisement(discount);
         }
 
         public List<Product> SearchProduct(string term, ProductSearchType type)

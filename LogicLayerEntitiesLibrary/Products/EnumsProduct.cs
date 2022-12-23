@@ -14,9 +14,9 @@ namespace LogicLayerEntitiesLibrary.Products
         sub_category
     }
 
-    public enum BonusRules
+    public enum DiscountRules
     {
-        PerUnit,
+        PerUnits,
         ItemFree,
         HalfPrice,
         UnitsForPrice

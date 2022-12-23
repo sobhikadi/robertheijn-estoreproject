@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LogicLayerEntitiesLibrary.Products;
 using LogicLayerEntitiesLibrary.Exceptions;
 using System.Xml.Linq;
+using LogicLayerEntitiesLibrary.Products.DiscountS;
 
 namespace DataAccessLibrary.Products
 {
@@ -349,5 +350,9 @@ namespace DataAccessLibrary.Products
             return listSuffix;
         }
 
+        public int AddAdvertisement(Product product, Discount discount)
+        {
+            return 1;
+        }
     }
 }

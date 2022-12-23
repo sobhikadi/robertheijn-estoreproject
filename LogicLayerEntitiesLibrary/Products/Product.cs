@@ -1,10 +1,13 @@
 ﻿using LogicLayerEntitiesLibrary.Exceptions;
+using LogicLayerEntitiesLibrary.Products.Discounts;
+using LogicLayerEntitiesLibrary.Products.DiscountS;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace LogicLayerEntitiesLibrary.Products
 {
@@ -79,6 +82,42 @@ namespace LogicLayerEntitiesLibrary.Products
             InStock = newProduct.InStock;
             Image = newProduct.Image;
             LastModified = newProduct.LastModified;
+        }
+
+        public void AddAdvertisement(Discount discount) 
+        {
+            if (Discounts.FirstOrDefault(i => i.Id == discount.Id) != null) throw new ArgumentException("Discount Already exist");
+            Discounts.Add(discount);
+        }
+
+        public double? CalculateDiscount(DiscountRules bonusRule, int amountProducts, double productPrice, double? flatDiscount)
+        {
+            IDiscount discountCalculator;
+
+            double discountValue = 0;
+            if (bonusRule == DiscountRules.PerUnits)
+            {
+                discountCalculator = new DiscountPerItem();
+                return discountCalculator.CalculateDiscount(amountProducts, productPrice, flatDiscount);
+            }
+            else if (bonusRule == DiscountRules.ItemFree)
+            {
+                discountCalculator = new DiscountItemFree();
+                return discountCalculator.CalculateDiscount(amountProducts, productPrice, flatDiscount);
+                
+            }
+            else if (bonusRule == DiscountRules.HalfPrice)
+            {
+                discountCalculator = new DiscountHalfPrice();
+                return discountCalculator.CalculateDiscount(amountProducts, productPrice, flatDiscount);
+                
+            }
+            else if (bonusRule == DiscountRules.UnitsForPrice)
+            {
+                discountCalculator = new DiscountItemsForPrice();
+                return discountCalculator.CalculateDiscount(amountProducts, productPrice, flatDiscount);
+            }
+            return discountValue;
         }
     }
 }
